@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 
     public float rotateSpeed = 3.0f;
 
-    private float currentVerticalAngle = 30f;  // ‰Šúã‰ºŠp“x
+    private float currentVerticalAngle = 55f;  // ‰Šúã‰ºŠp“x
     private float currentHorizontalAngle = 0f; // ‰Šú¶‰EŠp“x
     private float distance = 5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,9 +16,11 @@ public class CameraController : MonoBehaviour
         Vector3 offset = transform.position - target.position;
         distance = offset.magnitude;
 
-        Vector3 angles = transform.eulerAngles;
-        currentHorizontalAngle = angles.y;
-        currentVerticalAngle = angles.x;
+        Vector3 forward = target.forward;
+
+        currentHorizontalAngle = Mathf.Atan2(forward.x, forward.z) * Mathf.Rad2Deg;
+
+        currentVerticalAngle = 20f; 
     }
 
     // Update is called once per frame

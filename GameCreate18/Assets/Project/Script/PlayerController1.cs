@@ -1,68 +1,105 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController1 : MonoBehaviour
 {
-    [SerializeField]
-    InputAction moveInput;
-    [SerializeField]
-    InputAction jumpInput;
-    [SerializeField]
-    float moveSpeed=1.0f;
-    [SerializeField]
-    UnityEvent<int> pickupCountChaged;
-    bool isGround=true;
-    int pickupCount = 0;
-    bool isClear = false;
+    [SerializeField] InputAction moveInput;
+    [SerializeField] InputAction jumpInput;
 
-    new Rigidbody rigidbody;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float jumpForce = 5f;
+    [SerializeField] Transform cameraTransform;
+    [SerializeField] float fallThreshold = -10f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] Stage1 stage;
+    [SerializeField] GameObject[] buttons; // ←配列に変更
+
+    Vector3 respawnPosition;
+    Rigidbody rb;
+    bool isGround;
+    bool ButtonActive = false;
+    public bool IsButtonActive => ButtonActive;
+
     void Start()
     {
         moveInput.Enable();
         jumpInput.Enable();
-        rigidbody= GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+
+        respawnPosition = transform.position;
     }
 
     void Update()
     {
-        if ((jumpInput.WasPerformedThisFrame())&&(isGround==true))
+        // ジャンプ
+        if (jumpInput.WasPerformedThisFrame() && isGround)
         {
-            rigidbody.AddForce(0.0f, 300.0f, 0.0f);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGround = false;
         }
 
-
+        // 落下チェック（1つでOK）
+        if (transform.position.y < fallThreshold)
+        {
+            Respawn();
+        }
     }
-private void OnCollisionEnter(Collision collision)
-{
+
+    void FixedUpdate()
+    {
+        Vector2 input = moveInput.ReadValue<Vector2>();
+
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 moveDir = forward * input.y + right * input.x;
+
+        Vector3 velocity = rb.linearVelocity;
+        Vector3 targetVelocity = moveDir * moveSpeed;
+
+        rb.linearVelocity = new Vector3(targetVelocity.x, velocity.y, targetVelocity.z);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGround = true;
         }
-        /*else if (collision.gameObject.CompareTag("Damage"))
-        {
-            isClear = true;
-        }*/
-
-}
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        var move = moveInput.ReadValue<Vector2>()*moveSpeed;
-        rigidbody.AddForce(move.x, 0.0f, move.y);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("pickup"))
+        if (other.CompareTag("Button"))
         {
             other.gameObject.SetActive(false);
-            pickupCount++;
-            pickupCountChaged.Invoke(pickupCount);
+            ButtonActive = true;
         }
+
+        if (other.CompareTag("RespawnPoint"))
+        {
+            respawnPosition = other.transform.position;
+        }
+    }
+
+    void Respawn()
+    {
+        rb.linearVelocity = Vector3.zero;
+        transform.position = respawnPosition;
+
+        ButtonActive = false;
+
+        // 全ボタン復活
+        foreach (var b in buttons)
+        {
+            b.SetActive(true);
+        }
+
+        stage.ResetStage();
     }
 }
