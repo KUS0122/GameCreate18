@@ -1,9 +1,26 @@
 using UnityEngine;
 
-public class Button : MonoBehaviour
+public class ButtonController : MonoBehaviour
 {
+    bool isActive = true;
+
+    public void OnPressed(PlayerController1 player)
+    {
+        if (!isActive) return;
+
+        isActive = false;
+
+        // å©ÇΩñ⁄ÇæÇØè¡Ç∑
+        GetComponent<Collider>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
+        player.SetButtonActive(true);
+
+    }
+
     public void ResetButton()
     {
-        gameObject.SetActive(true);
+        isActive = true;
+        GetComponent<Collider>().enabled = true;
+        GetComponent<MeshRenderer>().enabled = true;
     }
 }

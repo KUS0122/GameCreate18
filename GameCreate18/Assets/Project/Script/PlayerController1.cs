@@ -12,7 +12,7 @@ public class PlayerController1 : MonoBehaviour
     [SerializeField] float fallThreshold = -10f;
 
     [SerializeField] Stage1 stage;
-    [SerializeField] GameObject[] buttons; // ←配列に変更
+    [SerializeField] Transform currentRoom;
 
     Vector3 respawnPosition;
     Rigidbody rb;
@@ -75,31 +75,38 @@ public class PlayerController1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Button"))
+        // Button を取得
+        ButtonController button = other.GetComponent<ButtonController>();
+
+        if (button != null)
         {
-            other.gameObject.SetActive(false);
-            ButtonActive = true;
+            button.OnPressed(this);
         }
 
         if (other.CompareTag("RespawnPoint"))
         {
-            respawnPosition = other.transform.position;
+            respawnPosition = other.transform.position + Vector3.up * 1.0f;
+            currentRoom = other.transform.parent;
         }
     }
 
     void Respawn()
     {
         rb.linearVelocity = Vector3.zero;
-        transform.position = respawnPosition;
+        transform.position = respawnPosition + Vector3.up * 0.5f;
 
         ButtonActive = false;
 
-        // 全ボタン復活
-        foreach (var b in buttons)
+        // ボタンを正しく復活
+        foreach (ButtonController button in currentRoom.GetComponentsInChildren<ButtonController>(true))
         {
-            b.SetActive(true);
+            button.ResetButton();
         }
 
         stage.ResetStage();
+    }
+    public void SetButtonActive(bool value)
+    {
+        ButtonActive = value;
     }
 }
