@@ -1,3 +1,4 @@
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
@@ -6,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     InputAction moveInput;
     Rigidbody rb;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int score = 0;
     void Start()
     {
         moveInput.Enable();
@@ -21,7 +22,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
     }
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (gameState != "playing")
@@ -33,16 +33,26 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Goal")
+        if (collision.gameObject.tag == "Clear")
         {
-            Goal();
+            Clear();
         }
         else if (collision.gameObject.tag == "Dead")
         {
             GameOver();
         }
+        else if (collision.gameObject.tag == "ScoreItem")
+        {
+            ItemData item = collision.gameObject.GetComponent<ItemData>();
+            score += 1;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Goal")
+        {
+            Goal();
+        }
     }
-    public void Goal()
+    public void Clear()
     {
         gameState = "gameclear";
         GameStop();
@@ -53,6 +63,11 @@ public class PlayerController : MonoBehaviour
         GameStop();
         //ÉvÉåÉCÉÑÅ[ÇÃColliderÇ…çáÇÌÇπÇÈ
         GetComponent<SphereCollider>().enabled = false;
+    }
+    public void Goal()
+    {
+        gameState = "gameGoal";
+        GameStop();
     }
     void GameStop()
     {

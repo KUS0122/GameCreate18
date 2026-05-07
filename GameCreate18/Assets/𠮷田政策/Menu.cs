@@ -48,16 +48,6 @@ public class Menu : MonoBehaviour
         isPaused = false;
     }
 
-    //public void OpenSettei()
-    //{
-    //    MenuPanel.SetActive(false);
-    //    SetteiPanel.SetActive(true);
-    //}
-    //public void BackSettei()
-    //{
-    //    SetteiPanel.SetActive(false);
-    //    MenuPanel.SetActive(true);
-    //}
     public void RemoveTitle()
     {
         Time.timeScale = 1.0f;
