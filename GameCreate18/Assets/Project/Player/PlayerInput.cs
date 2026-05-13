@@ -8,6 +8,8 @@ public class PlayerInput : MonoBehaviour
 
     // 他のスクリプトから入力値を参照するためのプロパティ（読み取り専用） 
     public Vector2 MovementInput { get; private set; }
+    public bool IsJumpPressed { get; private set; } //ジャンプ入力の状態 
+
 
     private void Awake()
     {
@@ -19,6 +21,9 @@ public class PlayerInput : MonoBehaviour
         _inputActions.CharacterControls.Move.started += OnMovementInput;
         _inputActions.CharacterControls.Move.performed += OnMovementInput;
         _inputActions.CharacterControls.Move.canceled += OnMovementInput;
+
+        _inputActions.CharacterControls.Jump.started += OnJumpInput;
+        _inputActions.CharacterControls.Jump.canceled += OnJumpInput;
     }
 
     private void OnEnable()
@@ -41,6 +46,11 @@ public class PlayerInput : MonoBehaviour
 
         // [デバッグ用] 入力値を確認したい場合は以下のコメントを解除してください 
         // Debug.Log($"Movement Input: {MovementInput}"); 
+    }
+
+    private void OnJumpInput(InputAction.CallbackContext context)
+    {
+        IsJumpPressed = context.ReadValueAsButton();
     }
 
 }

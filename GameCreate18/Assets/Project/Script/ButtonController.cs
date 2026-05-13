@@ -2,25 +2,49 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    bool isActive = true;
+    public bool IsActive = false;
 
-    public void OnPressed(PlayerController1 player)
+    private Collider _collider;
+    private Renderer[] _renderers;
+
+    private void Awake()
     {
-        if (!isActive) return;
+        _collider = GetComponent<Collider>();
+        _renderers =
+            GetComponentsInChildren<Renderer>();
+    }
 
-        isActive = false;
+    public void OnPressed(PlayerMovement player)
+    {
+        // 既に押されていたら無視
+        if (!IsActive) return;
 
-        // 見た目だけ消す
-        GetComponent<Collider>().enabled = false;
-        GetComponent<MeshRenderer>().enabled = false;
+        Debug.Log("Button Pressed");
+
+        IsActive = false;
+
+        // 非表示
+        _collider.enabled = false; 
+        foreach (var r in _renderers)
+        {
+            r.enabled = false;
+        }
+
+        // プレイヤーへ通知
         player.SetButtonActive(true);
-
     }
 
     public void ResetButton()
     {
-        isActive = true;
-        GetComponent<Collider>().enabled = true;
-        GetComponent<MeshRenderer>().enabled = true;
+        Debug.Log("Button Reset");
+
+        IsActive = true;
+
+        // 再表示
+        _collider.enabled = true;
+        foreach (var r in _renderers)
+        {
+            r.enabled = true;
+        }
     }
 }

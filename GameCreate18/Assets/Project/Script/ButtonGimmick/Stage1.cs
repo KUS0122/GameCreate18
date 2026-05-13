@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Stage1 : MonoBehaviour
 {
-    [SerializeField] PlayerController1 player;
+    [SerializeField] PlayerMovement player;
     [SerializeField] GameObject[] floors;
 
     [SerializeField] float interval = 1.0f;
