@@ -73,5 +73,6 @@ public class PlayerController : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.angularVelocity = new Vector3(0, 0, 0);
+        rb.isKinematic = true;
     }
 }

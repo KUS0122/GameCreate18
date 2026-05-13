@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public GameObject panel;
     public GameObject restartButton;
     public GameObject nextButton;
-    Image titleImage;
 
     public GameObject timeBar;
     public GameObject timeText;
@@ -32,6 +31,7 @@ public class GameManager : MonoBehaviour
         stageScore = 0;
         UpdateScore();
     }
+
     void Update()
     {
         if (PlayerController.gameState == "gameclear")
@@ -47,21 +47,27 @@ public class GameManager : MonoBehaviour
 
             mainImage.SetActive(true);
             panel.SetActive(true);
-            Button bt = restartButton.GetComponent<Button>();
-            bt.interactable = false;
+
+            Button rb = restartButton.GetComponent<Button>();
+            if (rb != null) rb.interactable = false;
+
             mainImage.GetComponent<Image>().sprite = gameClearSpr;
             PlayerController.gameState = "gameend";
-            totalScore = basePoint + timeBonus + stageScore * 300;
+
+            totalScore = basePoint + timeBonus + (stageScore * 300);
             UpdateScore();
         }
         else if (PlayerController.gameState == "gameover")
         {
             mainImage.SetActive(true);
             panel.SetActive(true);
-            Button bt = nextButton.GetComponent<Button>();
-            bt.interactable = false;
+
+            Button nb = nextButton.GetComponent<Button>();
+            if (nb != null) nb.interactable = false;
+
             mainImage.GetComponent<Image>().sprite = gameOverSpr;
             PlayerController.gameState = "gameend";
+
             if (timeCnt != null)
             {
                 timeCnt.isTimeOver = true;
@@ -73,13 +79,14 @@ public class GameManager : MonoBehaviour
             if (player != null)
             {
                 PlayerController playerCnt = player.GetComponent<PlayerController>();
+
                 if (timeCnt != null && timeText != null)
                 {
                     int time = (int)timeCnt.displayTime;
                     timeText.GetComponent<Text>().text = time.ToString();
                 }
 
-                if (playerCnt.score != 0)
+                if (playerCnt != null && playerCnt.score != 0)
                 {
                     stageScore += playerCnt.score;
                     playerCnt.score = 0;
@@ -88,12 +95,17 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     void InactiveImage()
     {
         mainImage.SetActive(false);
     }
+
     void UpdateScore()
     {
-        scoreText.GetComponent<Text>().text = "Items: " + stageScore.ToString();
+        if (scoreText != null)
+        {
+            scoreText.GetComponent<Text>().text = "Items: " + stageScore.ToString();
+        }
     }
 }
