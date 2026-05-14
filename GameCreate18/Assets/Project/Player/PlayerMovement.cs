@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterController _characterController;
     private PlayerInput _playerInput;
+    private Vector3 _moveDirection;
+    private bool _isGrounded;
 
     [Header("Camera")]
     [SerializeField]
@@ -46,15 +48,35 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMoveInput();
         HandleRotation();
+
+        // 横移動
+        Vector3 horizontalMove = new Vector3(
+            _currentMovement.x,
+            0f,
+            _currentMovement.z
+        );
+
+        _characterController.Move(
+            horizontalMove * Time.deltaTime
+        );
+
+        // 地面判定
+        _isGrounded = _characterController.isGrounded;
+
         HandleJump();
         ApplyGravity();
 
-        _characterController.Move(_currentMovement * Time.deltaTime);
+        // 縦移動だけ別でMove
+        CollisionFlags flags =
+            _characterController.Move(
+                Vector3.up * _currentMovement.y * Time.deltaTime
+            );
 
-        // 空中判定
-        Jumping = !_characterController.isGrounded;
+        _isGrounded =
+            (flags & CollisionFlags.Below) != 0;
 
-        // 落下チェック
+        Jumping = !_isGrounded;
+
         if (transform.position.y < fallThreshold)
         {
             Respawn();
@@ -82,47 +104,31 @@ public class PlayerMovement : MonoBehaviour
         right.y = 0f;
         right.Normalize();
 
-        // 移動方向
-        Vector3 moveDirection =
+        // カメラ基準移動方向
+        _moveDirection =
             forward * input.y +
             right * input.x;
 
+        _moveDirection.Normalize();
+
+        // 移動
         _currentMovement.x =
-            moveDirection.x * moveSpeed;
+            _moveDirection.x * moveSpeed;
 
         _currentMovement.z =
-            moveDirection.z * moveSpeed;
+            _moveDirection.z * moveSpeed;
     }
 
     private void HandleRotation()
     {
-        Vector2 input =
-            _playerInput.MovementInput;
-
-        if (input == Vector2.zero)
+        // 入力なし
+        if (_moveDirection == Vector3.zero)
             return;
 
-        // カメラ前方向
-        Vector3 forward =
-            cameraTransform.forward;
-
-        forward.y = 0f;
-        forward.Normalize();
-
-        // カメラ右方向
-        Vector3 right =
-            cameraTransform.right;
-
-        right.y = 0f;
-        right.Normalize();
-
-        // 入力方向
-        Vector3 moveDirection =
-            forward * input.y +
-            right * input.x;
-
         Quaternion targetRotation =
-            Quaternion.LookRotation(moveDirection);
+            Quaternion.LookRotation(
+                _moveDirection
+            );
 
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
@@ -133,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyGravity()
     {
-        if (_characterController.isGrounded &&
+        if (_isGrounded &&
             _currentMovement.y < 0)
         {
             _currentMovement.y = -2.0f;
@@ -144,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-        if (_characterController.isGrounded)
+        if (_isGrounded)
         {
             if (!IsJump &&
                 _playerInput.IsJumpPressed)
@@ -166,16 +172,14 @@ public class PlayerMovement : MonoBehaviour
         _currentMovement.y = jumpForce;
 
         // 地面を離れるまで待機
-        while (_characterController.isGrounded)
+        while (_isGrounded)
         {
             yield return null;
         }
 
-        // JumpLoopへ
         IsJump = false;
 
-        // 着地待機
-        while (!_characterController.isGrounded)
+        while (!_isGrounded)
         {
             yield return null;
         }
@@ -252,5 +256,20 @@ public class PlayerMovement : MonoBehaviour
     Vector3 newPosition)
     {
         _respawnPosition = newPosition;
+    }
+
+    public void ResetButtonState()
+    {
+        IsButtonActive = false;
+
+        // 全ButtonをOFFへ戻す
+        ButtonController[] buttons =
+            Object.FindObjectsByType<ButtonController>(
+                FindObjectsSortMode.None);
+
+        foreach (ButtonController button in buttons)
+        {
+            button.ResetButton();
+        }
     }
 }
