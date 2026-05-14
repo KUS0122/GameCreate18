@@ -4,14 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public static string gameState = "playing";
-    [SerializeField]
-    InputAction moveInput;
-    Rigidbody rb;
     public int score = 0;
     void Start()
     {
-        moveInput.Enable();
-        rb = GetComponent<Rigidbody>();
         gameState = "playing";
     }
 
@@ -28,8 +23,6 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        var move = moveInput.ReadValue<Vector2>();
-        rb.AddForce(move.x, 0.0f, move.y);
     }
     private void OnTriggerEnter(Collider collision)
     {
