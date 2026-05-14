@@ -1,50 +1,81 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Animator))]
 public class ButtonController : MonoBehaviour
 {
-    public bool IsActive = false;
+    [Header("Switch State")]
+    [SerializeField]
+    private bool _buttonActive = false;
 
-    private Collider _collider;
-    private Renderer[] _renderers;
+    // 一度押したらGroundを踏むまで再押下不可
+    private bool _isPlayerOnButton = false;
+
+    public bool ButtonActive => _buttonActive;
+
+    private Animator _animator;
+
+    private int _buttonActiveHash;
 
     private void Awake()
     {
-        _collider = GetComponent<Collider>();
-        _renderers =
-            GetComponentsInChildren<Renderer>();
+        _animator = GetComponent<Animator>();
+
+        _buttonActiveHash =
+            Animator.StringToHash("ButtonActive");
+
+        UpdateState();
     }
 
+    /// <summary>
+    /// ボタンを押す
+    /// </summary>
     public void OnPressed(PlayerMovement player)
     {
-        // 既に押されていたら無視
-        if (!IsActive) return;
+        // 連続押し禁止
+        if (_isPlayerOnButton)
+            return;
 
-        Debug.Log("Button Pressed");
+        _isPlayerOnButton = true;
 
-        IsActive = false;
+        // ON / OFF切替
+        _buttonActive = !_buttonActive;
 
-        // 非表示
-        _collider.enabled = false; 
-        foreach (var r in _renderers)
-        {
-            r.enabled = false;
-        }
+        Debug.Log($"Switch : {_buttonActive}");
 
-        // プレイヤーへ通知
-        player.SetButtonActive(true);
+        UpdateState();
+
+        player.SetButtonActive(_buttonActive);
     }
 
+    /// <summary>
+    /// Groundを踏んだら解除
+    /// </summary>
+    public void ResetPressState()
+    {
+        _isPlayerOnButton = false;
+    }
+
+    /// <summary>
+    /// リスポーン時OFFへ戻す
+    /// </summary>
     public void ResetButton()
     {
-        Debug.Log("Button Reset");
+        _buttonActive = false;
 
-        IsActive = true;
+        _isPlayerOnButton = false;
 
-        // 再表示
-        _collider.enabled = true;
-        foreach (var r in _renderers)
-        {
-            r.enabled = true;
-        }
+        UpdateState();
+    }
+
+    /// <summary>
+    /// Animator同期
+    /// </summary>
+    private void UpdateState()
+    {
+        _animator.SetBool(
+            _buttonActiveHash,
+            _buttonActive
+        );
     }
 }

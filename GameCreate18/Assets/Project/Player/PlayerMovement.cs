@@ -8,6 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController _characterController;
     private PlayerInput _playerInput;
 
+    [Header("Camera")]
+    [SerializeField]
+    private Transform cameraTransform;
+
     [Header("Move")]
     [SerializeField] private float moveSpeed = 5.0f;
     [SerializeField] private float rotationSpeed = 15.0f;
@@ -19,18 +23,16 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Respawn")]
     [SerializeField] private float fallThreshold = -10f;
-    [SerializeField] private Stage1 stage;
+    //[SerializeField] private Stage1 stage;
 
     private Vector3 _currentMovement = Vector3.zero;
 
     private Vector3 _respawnPosition;
-    private Transform _currentRoom;
 
     public bool IsMove { get; private set; } = false;
     public bool IsJump { get; private set; } = false;
     public bool Jumping { get; private set; } = false;
     public bool IsButtonActive { get; private set; } = false;
-
 
     private void Start()
     {
@@ -61,28 +63,66 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMoveInput()
     {
-        IsMove = _playerInput.MovementInput != Vector2.zero;
+        Vector2 input =
+            _playerInput.MovementInput;
+
+        IsMove = input != Vector2.zero;
+
+        // カメラ前方向
+        Vector3 forward =
+            cameraTransform.forward;
+
+        forward.y = 0f;
+        forward.Normalize();
+
+        // カメラ右方向
+        Vector3 right =
+            cameraTransform.right;
+
+        right.y = 0f;
+        right.Normalize();
+
+        // 移動方向
+        Vector3 moveDirection =
+            forward * input.y +
+            right * input.x;
 
         _currentMovement.x =
-         _playerInput.MovementInput.x * moveSpeed;
+            moveDirection.x * moveSpeed;
 
         _currentMovement.z =
-            _playerInput.MovementInput.y * moveSpeed;
+            moveDirection.z * moveSpeed;
     }
-
 
     private void HandleRotation()
     {
-        Vector2 input = _playerInput.MovementInput;
+        Vector2 input =
+            _playerInput.MovementInput;
 
         if (input == Vector2.zero)
             return;
 
-        Vector3 targetDirection =
-            new Vector3(input.x, 0, input.y);
+        // カメラ前方向
+        Vector3 forward =
+            cameraTransform.forward;
+
+        forward.y = 0f;
+        forward.Normalize();
+
+        // カメラ右方向
+        Vector3 right =
+            cameraTransform.right;
+
+        right.y = 0f;
+        right.Normalize();
+
+        // 入力方向
+        Vector3 moveDirection =
+            forward * input.y +
+            right * input.x;
 
         Quaternion targetRotation =
-            Quaternion.LookRotation(targetDirection);
+            Quaternion.LookRotation(moveDirection);
 
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
@@ -116,7 +156,6 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator JumpCoroutine()
     {
-
         // JumpStart
         IsJump = true;
 
@@ -155,7 +194,6 @@ public class PlayerMovement : MonoBehaviour
         StopAllCoroutines();
 
         IsJump = false;
-        IsJump = false;
         Jumping = false;
 
         _currentMovement = Vector3.zero;
@@ -165,16 +203,22 @@ public class PlayerMovement : MonoBehaviour
 
         IsButtonActive = false;
 
-        //if (_currentRoom != null)
-        //{
-        //    foreach (ButtonController button in
-        //             _currentRoom.GetComponentsInChildren<ButtonController>(true))
-        //    {
-        //        button.ResetButton();
-        //    }
-        //}
+        // 全ボタンリセット
+        ButtonController[] buttons =
+            Object.FindObjectsByType<ButtonController>(
+                FindObjectsSortMode.None);
 
-        if (stage != null)
+        foreach (ButtonController button in buttons)
+        {
+            button.ResetButton();
+        }
+
+        // 全ステージギミックリセット
+        StageBase[] stages =
+            Object.FindObjectsByType<StageBase>(
+                FindObjectsSortMode.None);
+
+        foreach (StageBase stage in stages)
         {
             stage.ResetStage();
         }
@@ -182,15 +226,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (!hit.gameObject.CompareTag("Button"))
-            return;
-
-        if (hit.gameObject.TryGetComponent(out ButtonController button))
+        // Groundを踏んだら再押下可能
+        if (hit.gameObject.CompareTag("Ground"))
         {
-            if (!button.IsActive)
-                return;
+            ButtonController[] buttons =
+                Object.FindObjectsByType<ButtonController>(FindObjectsSortMode.None);
 
-            button.OnPressed(this);
+            foreach (ButtonController button in buttons)
+            {
+                button.ResetPressState();
+            }
         }
+
+        // Buttonを押す
+        ButtonController buttonController =
+            hit.gameObject.GetComponentInParent<ButtonController>();
+
+        if (buttonController != null)
+        {
+            buttonController.OnPressed(this);
+        }
+    }
+
+    public void UpdateRespawnPoint(
+    Vector3 newPosition)
+    {
+        _respawnPosition = newPosition;
     }
 }
