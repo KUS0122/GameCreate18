@@ -3,7 +3,12 @@ guid: 402a1a496b49eff479fe285b9cff3e62
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: iwa
+    second: {fileID: 2800000, guid: e4768a27c0883f04ea03ba86cc376e3c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

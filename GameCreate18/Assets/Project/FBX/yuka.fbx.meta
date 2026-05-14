@@ -3,7 +3,12 @@ guid: da5452ad0c25b254a8362a1846396c30
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: yuka
+    second: {fileID: 2800000, guid: 856a6d58436daa94c8a4a79e407a0cac, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
