@@ -39,7 +39,6 @@ public class GameOver : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
 
         _respawnPosition = transform.position;
-        gameState = "playing";
     }
 
     private void Update()

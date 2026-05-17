@@ -21,6 +21,6 @@ public class GoalChange : MonoBehaviour
         }
         panel.SetActive(false);
         mainImage.SetActive(false);
-        PlayerController.gameState = "playing";
+        PlayerMovement.gameState = "playing";
     }
 }

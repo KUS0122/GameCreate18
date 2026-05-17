@@ -9,10 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject mainImage;
-    public Sprite gameOverSpr;
     public Sprite gameClearSpr;
     public GameObject panel;
-    public GameObject restartButton;
     public GameObject nextButton;
 
     public GameObject timeBar;
@@ -24,61 +22,37 @@ public class GameManager : MonoBehaviour
     public int stageScore = 0;
     public int basePoint = 1000;
 
+    private bool isGameCleared = false;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         Invoke("InactiveImage", 1.0f);
         panel.SetActive(false);
         stageScore = 0;
         UpdateScore();
+        isGameCleared = false;
     }
 
     void Update()
     {
-        if (PlayerController.gameState == "gameclear")
-        {
-            int timeBonus = 0;
-            if (timeCnt != null)
-            {
-                timeCnt.isTimeOver = true;
-                float baseTime = 300f;
-                float remain = Mathf.Max(0, baseTime - TimeController.gameTime);
-                timeBonus = (int)(remain * 50f);
-            }
-
-            mainImage.SetActive(true);
-            panel.SetActive(true);
-
-            Button rb = restartButton.GetComponent<Button>();
-            if (rb != null) rb.interactable = false;
-
-            mainImage.GetComponent<Image>().sprite = gameClearSpr;
-            PlayerController.gameState = "gameend";
-
-            totalScore = basePoint + timeBonus + (stageScore * 300);
-            UpdateScore();
-        }
-        else if (PlayerController.gameState == "gameover")
-        {
-            mainImage.SetActive(true);
-            panel.SetActive(true);
-
-            Button nb = nextButton.GetComponent<Button>();
-            if (nb != null) nb.interactable = false;
-
-            mainImage.GetComponent<Image>().sprite = gameOverSpr;
-            PlayerController.gameState = "gameend";
-
-            if (timeCnt != null)
-            {
-                timeCnt.isTimeOver = true;
-            }
-        }
-        else if (PlayerController.gameState == "playing")
+        if (PlayerMovement.gameState == "playing")
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                PlayerController playerCnt = player.GetComponent<PlayerController>();
+                PlayerMovement playerCnt = player.GetComponent<PlayerMovement>();
 
                 if (timeCnt != null && timeText != null)
                 {
@@ -93,6 +67,28 @@ public class GameManager : MonoBehaviour
                     UpdateScore();
                 }
             }
+        }
+    }
+    public void ClearGame()
+    {
+        if(PlayerMovement.gameState == "gameclear")
+        {
+        int timeBonus = 0;
+        if (timeCnt != null)
+        {
+            timeCnt.isTimeOver = true;
+            float baseTime = 300f;
+            float remain = Mathf.Max(0, baseTime - TimeController.gameTime);
+            timeBonus = (int)(remain * 50f);
+        }
+
+        mainImage.SetActive(true);
+        panel.SetActive(true);
+
+        mainImage.GetComponent<Image>().sprite = gameClearSpr;
+
+        totalScore = basePoint + timeBonus + (stageScore * 300);
+
         }
     }
 

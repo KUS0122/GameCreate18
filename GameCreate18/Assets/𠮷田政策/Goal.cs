@@ -12,6 +12,7 @@ public class Goal : MonoBehaviour
 
     public InputField inputField;
     public GameObject fieldObject;
+    public Text errorText;
 
     void Start()
     {
@@ -23,9 +24,19 @@ public class Goal : MonoBehaviour
         {
             mainImage.SetActive(true);
             panel.SetActive(true);
+            if(errorText != null)
+            {
+                errorText.text = "";
+            }
+            if (exitButton != null)
+            {
             exitButton.SetActive(true);
             Button bt = exitButton.GetComponent<Button>();
-            bt.interactable = true;
+                if (bt != null)
+                {
+                    bt.interactable = true;
+                }
+            }
             PlayerMovement.gameState = "gameend";
         }
     }
@@ -35,6 +46,16 @@ public class Goal : MonoBehaviour
         {
             panel.SetActive(false);
             PlayerMovement.gameState = "gameclear";
+        }
+        else
+        {
+            panel.SetActive(true);
+            inputField.text = "";
+            inputField.ActivateInputField();
+            if(errorText != null)
+            {
+                errorText.text = "パスワードが違います";
+            }
         }
     }
 }
