@@ -334,22 +334,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 476915021}
-    - target: {fileID: 8326352553687071566, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 367.61514
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326352553687071566, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 279.10077
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326352553687071566, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -25.004646
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326352553687071566, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -29.68
-      objectReference: {fileID: 0}
     - target: {fileID: 8412184349837684678, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
       propertyPath: m_Name
       value: stage2
