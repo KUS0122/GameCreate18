@@ -62,7 +62,8 @@ public class Stage3 : StageBase
         HideAllFloors();
 
         // Button OFF‚Ö–ß‚·
-        player.ResetButtonState();
+        //player.ResetButtonState();
+        player.SetButtonActive(false);
     }
 
     private void ShowAllFloors()
