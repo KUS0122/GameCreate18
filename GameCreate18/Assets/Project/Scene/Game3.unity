@@ -334,7 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05eaae2a6ad02f4d9c8bfc21e4171c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoDoor
-  animator: {fileID: 0}
 --- !u!1 &600086563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9092330847023867535, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
@@ -608,7 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05eaae2a6ad02f4d9c8bfc21e4171c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoDoor
-  animator: {fileID: 0}
 --- !u!43 &1845419085
 Mesh:
   m_ObjectHideFlags: 0
@@ -846,7 +844,7 @@ PrefabInstance:
       objectReference: {fileID: 1186034787}
     - target: {fileID: 2735644734723708263, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
       propertyPath: m_VersionIndex
-      value: 6182
+      value: 6191
       objectReference: {fileID: 0}
     - target: {fileID: 2947270699542495810, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
       propertyPath: m_Mesh
@@ -871,6 +869,10 @@ PrefabInstance:
     - target: {fileID: 5538313956458187387, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778867255440555970, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6809673383644757031, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
       propertyPath: m_LocalScale.x
@@ -903,6 +905,10 @@ PrefabInstance:
     - target: {fileID: 7321242766213672395, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
       propertyPath: _buttonActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747692844617961197, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8455890332817276942, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
       propertyPath: m_Mesh
@@ -970,7 +976,7 @@ PrefabInstance:
       objectReference: {fileID: 1845419085}
     - target: {fileID: 8960457148450381255, guid: 23bf40aba6adb8e4eb2bcef571ac433e, type: 3}
       propertyPath: m_VersionIndex
-      value: 6179
+      value: 6188
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

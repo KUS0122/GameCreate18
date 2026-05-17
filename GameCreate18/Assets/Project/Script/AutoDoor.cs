@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class AutoDoor : MonoBehaviour
 {
-    [Header("Animator")]
-    [SerializeField]
     private Animator animator;
 
     private static readonly int OpenHash =
         Animator.StringToHash("Open");
 
-    private void Reset()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }
