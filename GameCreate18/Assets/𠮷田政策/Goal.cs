@@ -19,14 +19,14 @@ public class Goal : MonoBehaviour
     }
     void Update()
     {
-        if (PlayerController.gameState == "gameGoal")
+        if (PlayerMovement.gameState == "gameGoal")
         {
             mainImage.SetActive(true);
             panel.SetActive(true);
             exitButton.SetActive(true);
             Button bt = exitButton.GetComponent<Button>();
             bt.interactable = true;
-            PlayerController.gameState = "gameend";
+            PlayerMovement.gameState = "gameend";
         }
     }
     public void InputPass()
@@ -34,7 +34,7 @@ public class Goal : MonoBehaviour
         if (inputField.text == "1234")
         {
             panel.SetActive(false);
-            PlayerController.gameState = "gameclear";
+            PlayerMovement.gameState = "gameclear";
         }
     }
 }

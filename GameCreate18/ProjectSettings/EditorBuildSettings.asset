@@ -4,6 +4,25 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Project/Scene/Game1.unity
+    guid: d3db812ab7fedc449b7ddecd16949c6b
+  - enabled: 1
+    path: Assets/Project/Scene/Game2.unity
+    guid: 1242be2e7f05031458681bcf396408f8
+  - enabled: 1
+    path: Assets/Project/Scene/Game3.unity
+    guid: 72cd9d8518d9c244884666464cb1c4d5
+  - enabled: 1
+    path: Assets/Project/Scene/Result.unity
+    guid: 5c13fbd314ab04548bbac95dfd7ea6e7
+  - enabled: 1
+    path: Assets/Project/Scene/Title.unity
+    guid: 426d516909f537c48aff16bfff79aefa
+=======
   m_Scenes: []
+>>>>>>> 3ee1caa4bd3066a8dfc879197623e1b0d44340d7
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
