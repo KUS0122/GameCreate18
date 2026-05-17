@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 5216715757528281205}
   - component: {fileID: 7899945794758664760}
   - component: {fileID: 6526346455481600762}
+  - component: {fileID: 4300351459292506606}
   m_Layer: 5
   m_Name: MainPanel
   m_TagString: Untagged
@@ -423,6 +424,28 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4300351459292506606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625104957825229239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f646b994862f66449a312525aaf063dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  mainImage: {fileID: 987486318452642117}
+  gameClearSpr: {fileID: 0}
+  panel: {fileID: 1242483416983038138}
+  nextButton: {fileID: 6830913257789666807}
+  timeBar: {fileID: 2669571742006312704}
+  timeText: {fileID: 7547037476611608678}
+  timeCnt: {fileID: 546042616883104611}
+  scoreText: {fileID: 5131442414932550081}
+  stageScore: 0
+  basePoint: 1000
 --- !u!1 &5131442414932550081
 GameObject:
   m_ObjectHideFlags: 0

@@ -349,6 +349,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrackingCamera
   playerTransform: {fileID: 0}
+  offset: {x: 0, y: 5, z: -7}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionRadius: 0.3
+  wallPadding: 0.2
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90453d1d1dbd3c047b1c640676e393dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeScene
-  SceneName: SampleScene
+  SceneName: Game1
 --- !u!114 &1124581863
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.InputSystem.LowLevel;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
@@ -34,16 +36,24 @@ public class PlayerMovement : MonoBehaviour
     public bool Jumping { get; private set; } = false;
     public bool IsButtonActive { get; private set; } = false;
 
+    public int score = 0;
+    public static string gameState = "playing";
+
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _playerInput = GetComponent<PlayerInput>();
 
         _respawnPosition = transform.position;
+        gameState = "playing";
     }
 
     private void Update()
     {
+        if (gameState != "playing")
+        {
+            return;
+        }
         HandleMoveInput();
         HandleRotation();
         HandleJump();
@@ -252,5 +262,38 @@ public class PlayerMovement : MonoBehaviour
     Vector3 newPosition)
     {
         _respawnPosition = newPosition;
+    }
+
+    //プレイヤーステータス
+    private void OnTriggerEnter(Collider collision)
+    {
+      if(collision.gameObject.tag == "Clear")
+        {
+            Clear();
+        }
+        else if (collision.gameObject.tag == "ScoreItem")
+        {
+            ItemData item = collision.gameObject.GetComponent<ItemData>();
+            score += 1;
+            Destroy(collision.gameObject);
+        }
+      else if(collision.gameObject.tag == "Goal")
+        {
+            Goal();
+        }
+    }
+    public void Clear()
+    {
+        gameState = "gameclear";
+        GameStop();
+    }
+    public void Goal()
+    {
+        gameState = "gameGoal";
+        GameStop();
+    }
+    void GameStop()
+    {
+
     }
 }
