@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject mainImage;
+    public Sprite gameOverSpr;
     public Sprite gameClearSpr;
     public GameObject panel;
+    public GameObject restartButton;
     public GameObject nextButton;
 
     public GameObject timeBar;
@@ -46,10 +48,30 @@ public class GameManager : MonoBehaviour
             mainImage.SetActive(true);
             panel.SetActive(true);
 
+            Button rb = restartButton.GetComponent<Button>();
+            if (rb != null) rb.interactable = false;
+
             mainImage.GetComponent<Image>().sprite = gameClearSpr;
+            PlayerController.gameState = "gameend";
 
             totalScore = basePoint + timeBonus + (stageScore * 300);
             UpdateScore();
+        }
+        else if (PlayerController.gameState == "gameover")
+        {
+            mainImage.SetActive(true);
+            panel.SetActive(true);
+
+            Button nb = nextButton.GetComponent<Button>();
+            if (nb != null) nb.interactable = false;
+
+            mainImage.GetComponent<Image>().sprite = gameOverSpr;
+            PlayerController.gameState = "gameend";
+
+            if (timeCnt != null)
+            {
+                timeCnt.isTimeOver = true;
+            }
         }
         else if (PlayerController.gameState == "playing")
         {

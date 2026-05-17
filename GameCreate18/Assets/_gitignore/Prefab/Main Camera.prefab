@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrackingCamera
   playerTransform: {fileID: 0}
-  offset: {x: 0, y: 2, z: -2}
+  offset: {x: 1.1, y: 2, z: -3}
   wallLayer:
     serializedVersion: 2
     m_Bits: 0

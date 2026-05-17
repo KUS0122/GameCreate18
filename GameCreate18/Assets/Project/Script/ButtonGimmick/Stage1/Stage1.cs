@@ -67,9 +67,6 @@ public class Stage1 : StageBase
         }
     }
 
-    /// <summary>
-    /// 次の床を表示
-    /// </summary>
     private void ShowNextFloor()
     {
         if (currentIndex >= floors.Length)
@@ -78,13 +75,11 @@ public class Stage1 : StageBase
         GameObject floor =
             floors[currentIndex];
 
-        // 表示
         SetFloor(floor, true);
 
         activeFloors.Enqueue(floor);
 
-        // 古い床削除
-        if (activeFloors.Count > 3)
+        if (activeFloors.Count > 5)
         {
             GameObject oldFloor =
                 activeFloors.Dequeue();
@@ -95,9 +90,6 @@ public class Stage1 : StageBase
         currentIndex++;
     }
 
-    /// <summary>
-    /// 表示切替
-    /// </summary>
     private void SetFloor(
         GameObject floor,
         bool state)
@@ -122,35 +114,25 @@ public class Stage1 : StageBase
         }
     }
 
-    /// <summary>
-    /// Button OFF時
-    /// </summary>
     public override void StopStage()
     {
         ResetStage();
     }
 
-    /// <summary>
-    /// Respawn時
-    /// </summary>
     public override void ResetStage()
     {
-        // 全床非表示
         foreach (GameObject floor in floors)
         {
             SetFloor(floor, false);
         }
 
-        // キュー初期化
         activeFloors.Clear();
 
-        // 状態初期化
         currentIndex = 0;
 
         timer = 0f;
 
         isActive = false;
 
-        Debug.Log("Stage1 Reset");
     }
 }

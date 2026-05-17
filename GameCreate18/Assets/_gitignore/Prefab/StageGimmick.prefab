@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4740875233678726356}
   - component: {fileID: 8202832255353699046}
   m_Layer: 0
-  m_Name: Stage1Gimmick
+  m_Name: StageGimmick
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

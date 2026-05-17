@@ -27,9 +27,6 @@ public class ButtonController : MonoBehaviour
         UpdateState();
     }
 
-    /// <summary>
-    /// ボタンを押す
-    /// </summary>
     public void OnPressed(PlayerMovement player)
     {
         // 連続押し禁止
@@ -48,17 +45,11 @@ public class ButtonController : MonoBehaviour
         player.SetButtonActive(_buttonActive);
     }
 
-    /// <summary>
-    /// Groundを踏んだら解除
-    /// </summary>
     public void ResetPressState()
     {
         _isPlayerOnButton = false;
     }
 
-    /// <summary>
-    /// リスポーン時OFFへ戻す
-    /// </summary>
     public void ResetButton()
     {
         _buttonActive = false;
@@ -68,9 +59,6 @@ public class ButtonController : MonoBehaviour
         UpdateState();
     }
 
-    /// <summary>
-    /// Animator同期
-    /// </summary>
     private void UpdateState()
     {
         _animator.SetBool(

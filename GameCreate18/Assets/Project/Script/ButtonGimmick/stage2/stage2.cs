@@ -84,17 +84,11 @@ public class Stage2 : StageBase
         }
     }
 
-    /// <summary>
-    /// OFF時停止のみ
-    /// </summary>
     public override void StopStage()
     {
         // 何もしない
     }
 
-    /// <summary>
-    /// Respawn時完全リセット
-    /// </summary>
     public override void ResetStage()
     {
         movingFloor.position =
