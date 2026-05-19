@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity = -9.81f;
 
     [Header("Respawn")]
-    [SerializeField] private float fallThreshold = -10f;
+    [SerializeField] private float fallThreshold = -3f;
     //[SerializeField] private Stage1 stage;
 
     private Vector3 _currentMovement = Vector3.zero;
@@ -84,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Respawn();
         }
+        Debug.Log(transform.position.y);
     }
 
     private void HandleMoveInput()
