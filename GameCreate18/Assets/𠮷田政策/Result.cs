@@ -10,6 +10,6 @@ public class Result : MonoBehaviour
     void Start()
     {
         resultScoreText.GetComponent<Text>().text = GameManager.totalScore.ToString();
-        timeText.GetComponent<Text>().text = ((int)TimeController.gameTime).ToString();
+        timeText.GetComponent<Text>().text = GameManager.ResultTime.ToString();
     }
 }

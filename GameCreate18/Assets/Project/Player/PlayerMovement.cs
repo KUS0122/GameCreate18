@@ -281,11 +281,24 @@ public class PlayerMovement : MonoBehaviour
         {
             Goal();
         }
+        else if (collision.gameObject.tag == "Next")
+        {
+            Next();
+        }
     }
     public void Clear()
     {
         gameState = "gameclear";
         GameStop();
+    }public void Next()
+    {
+        gameState = "next";
+        GameStop();
+
+        if(GameManager.instance != null)
+        {
+            GameManager.instance.NextStage();
+        }
     }
     public void Goal()
     {
@@ -294,6 +307,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void GameStop()
     {
+        IsJump = false;
+        Jumping = false;
         _currentMovement = Vector3.zero;
     }
 }
