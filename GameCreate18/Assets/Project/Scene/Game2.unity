@@ -293,7 +293,11 @@ PrefabInstance:
     - target: {fileID: 1958991224359071047, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
       propertyPath: m_Mesh
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1038882147}
+=======
+      objectReference: {fileID: 0}
+>>>>>>> 3eac7188e5e71fac8e165a6773003c2eb94ce914
     - target: {fileID: 2103892583985083236, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -321,6 +325,7 @@ PrefabInstance:
     - target: {fileID: 5084608245551181579, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
       propertyPath: m_Mesh
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1038882147}
     - target: {fileID: 5440367260904699950, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
       propertyPath: m_Mesh
@@ -329,6 +334,12 @@ PrefabInstance:
     - target: {fileID: 5440367260904699950, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
       propertyPath: m_VersionIndex
       value: 5954
+=======
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440367260904699950, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
+      propertyPath: m_Mesh
+      value: 
+>>>>>>> 3eac7188e5e71fac8e165a6773003c2eb94ce914
       objectReference: {fileID: 0}
     - target: {fileID: 5792653073058593254, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
       propertyPath: player
@@ -427,7 +438,8 @@ PrefabInstance:
       value: Next
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7240197756153755818, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8839021286252475299, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
       insertIndex: -1
@@ -700,6 +712,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ee2ff09a9a772f4a87b6ae140646b31, type: 3}
+<<<<<<< HEAD
 --- !u!43 &1038882147
 Mesh:
   m_ObjectHideFlags: 0
@@ -957,6 +970,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> 3eac7188e5e71fac8e165a6773003c2eb94ce914
 --- !u!1 &1202335222 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8702912868256801268, guid: abfa1cbf368df6f47865db9818d71f63, type: 3}
