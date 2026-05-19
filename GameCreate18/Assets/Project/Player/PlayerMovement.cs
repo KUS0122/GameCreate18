@@ -312,11 +312,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void GameStop()
     {
-<<<<<<< HEAD
         IsJump = false;
         Jumping = false;
         _currentMovement = Vector3.zero;
-=======
 
     }
     public void ResetButtonState()
@@ -332,7 +330,5 @@ public class PlayerMovement : MonoBehaviour
         {
             button.ResetButton();
         }
-// 3ee1caa4bd3066a8dfc879197623e1b0d44340d7
->>>>>>> 3eac7188e5e71fac8e165a6773003c2eb94ce914
     }
 }
