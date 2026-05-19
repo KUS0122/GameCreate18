@@ -56,19 +56,9 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
+
         HandleMoveInput();
         HandleRotation();
-
-        // 横移動
-        Vector3 horizontalMove = new Vector3(
-            _currentMovement.x,
-            0f,
-            _currentMovement.z
-        );
-
-        _characterController.Move(
-            horizontalMove * Time.deltaTime
-        );
 
         // 地面判定
         _isGrounded = _characterController.isGrounded;
@@ -76,11 +66,14 @@ public class PlayerMovement : MonoBehaviour
         HandleJump();
         ApplyGravity();
 
-        // 縦移動だけ別でMove
+        Vector3 move = new Vector3(
+            _currentMovement.x,
+            _currentMovement.y,
+            _currentMovement.z
+        );
+
         CollisionFlags flags =
-            _characterController.Move(
-                Vector3.up * _currentMovement.y * Time.deltaTime
-            );
+            _characterController.Move(move * Time.deltaTime);
 
         _isGrounded =
             (flags & CollisionFlags.Below) != 0;
@@ -160,42 +153,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-        if (_isGrounded)
+        if (_isGrounded &&
+            !IsJump &&
+            _playerInput.IsJumpPressed)
         {
-            if (!IsJump &&
-                _playerInput.IsJumpPressed)
-            {
-                StartCoroutine(JumpCoroutine());
-            }
-        }
-    }
-
-    private IEnumerator JumpCoroutine()
-    {
-        // JumpStart
-        IsJump = true;
-
-        // しゃがみ待機
-        yield return new WaitForSeconds(jumpStartDelay);
-
-        // ジャンプ
-        _currentMovement.y = jumpForce;
-
-        // 地面を離れるまで待機
-        while (_isGrounded)
-        {
-            yield return null;
+            IsJump = true;
+            _currentMovement.y = jumpForce;
         }
 
-        IsJump = false;
-
-        while (!_isGrounded)
+        if (_isGrounded &&
+            _currentMovement.y <= 0f)
         {
-            yield return null;
+            IsJump = false;
         }
-
-        // 終了
-        IsJump = false;
     }
 
     public void SetButtonActive(bool active)
