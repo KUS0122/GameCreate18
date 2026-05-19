@@ -8,6 +8,9 @@ TagManager:
   - Button
   - RespawnPoint
   - Goal
+  - Clear
+  - next
+  - Next
   layers:
   - Default
   - TransparentFX

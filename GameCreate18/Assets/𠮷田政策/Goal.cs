@@ -46,6 +46,10 @@ public class Goal : MonoBehaviour
         {
             panel.SetActive(false);
             PlayerMovement.gameState = "gameclear";
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.ClearGame();
+            }
         }
         else
         {

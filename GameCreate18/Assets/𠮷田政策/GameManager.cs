@@ -22,7 +22,9 @@ public class GameManager : MonoBehaviour
     public int stageScore = 0;
     public int basePoint = 1000;
 
-    private bool isGameCleared = false;
+    public static float totalGameTime = 0f;
+    public static int ResultTime = 0;
+    public bool isTimer = true;
 
     void Awake()
     {
@@ -42,23 +44,31 @@ public class GameManager : MonoBehaviour
         panel.SetActive(false);
         stageScore = 0;
         UpdateScore();
-        isGameCleared = false;
+        isTimer = true;
     }
 
     void Update()
     {
+        if (isTimer && PlayerMovement.gameState == "playing")
+        {
+            totalGameTime += Time.deltaTime;
+            if (timeText != null)
+            {
+                timeText.GetComponent<Text>().text = ((int)totalGameTime).ToString();
+            }
+        }
         if (PlayerMovement.gameState == "playing")
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
+         GameObject player = GameObject.FindGameObjectWithTag("Player");
+          if (player != null)
+           {
                 PlayerMovement playerCnt = player.GetComponent<PlayerMovement>();
 
-                if (timeCnt != null && timeText != null)
-                {
-                    int time = (int)timeCnt.displayTime;
-                    timeText.GetComponent<Text>().text = time.ToString();
-                }
+                //if (timeCnt != null && timeText != null)
+                //{
+                //    int time = (int)timeCnt.displayTime;
+                //    timeText.GetComponent<Text>().text = time.ToString();
+                //}
 
                 if (playerCnt != null && playerCnt.score != 0)
                 {
@@ -73,6 +83,7 @@ public class GameManager : MonoBehaviour
     {
         if(PlayerMovement.gameState == "gameclear")
         {
+            isTimer = false;
         int timeBonus = 0;
         if (timeCnt != null)
         {
@@ -89,7 +100,26 @@ public class GameManager : MonoBehaviour
 
         totalScore = basePoint + timeBonus + (stageScore * 300);
 
+            ResultTime = (int)totalGameTime;
         }
+    }
+
+    public void NextStage()
+    {
+        isTimer = false;
+        if (PlayerMovement.gameState == "next")
+        {
+            mainImage.SetActive(true);
+            panel.SetActive(true);
+
+            mainImage.GetComponent<Image>().sprite = gameClearSpr;
+        }
+    }
+    public void ResumeGame()
+    {
+        panel.SetActive(false);
+        isTimer = true;
+        PlayerMovement.gameState = "playing";
     }
 
     void InactiveImage()

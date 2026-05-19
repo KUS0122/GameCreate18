@@ -1,71 +1,71 @@
-using NUnit.Framework.Interfaces;
-using UnityEngine;
-using UnityEngine.InputSystem;
-public class PlayerController : MonoBehaviour
-{
-    public static string gameState = "playing";
-    public int score = 0;
-    void Start()
-    {
-        gameState = "playing";
-    }
+//using NUnit.Framework.Interfaces;
+//using UnityEngine;
+//using UnityEngine.InputSystem;
+//public class PlayerController : MonoBehaviour
+//{
+//    public static string gameState = "playing";
+//    public int score = 0;
+//    void Start()
+//    {
+//        gameState = "playing";
+//    }
 
-    void Update()
-    {
-        if (gameState != "playing")
-        {
-            return;
-        }
-    }
-    void FixedUpdate()
-    {
-        if (gameState != "playing")
-        {
-            return;
-        }
-    }
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "Clear")
-        {
-            Clear();
-        }
-        else if (collision.gameObject.tag == "Dead")
-        {
-            GameOver();
-        }
-        else if (collision.gameObject.tag == "ScoreItem")
-        {
-            ItemData item = collision.gameObject.GetComponent<ItemData>();
-            score += 1;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.tag == "Goal")
-        {
-            Goal();
-        }
-    }
-    public void Clear()
-    {
-        gameState = "gameclear";
-        GameStop();
-    }
-    public void GameOver()
-    {
-        gameState = "gameover";
-        GameStop();
-        //プレイヤーのColliderに合わせる
-        GetComponent<SphereCollider>().enabled = false;
-    }
-    public void Goal()
-    {
-        gameState = "gameGoal";
-        GameStop();
-    }
-    void GameStop()
-    {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.angularVelocity = new Vector3(0, 0, 0);
-        rb.isKinematic = true;
-    }
-}
+//    void Update()
+//    {
+//        if (gameState != "playing")
+//        {
+//            return;
+//        }
+//    }
+//    void FixedUpdate()
+//    {
+//        if (gameState != "playing")
+//        {
+//            return;
+//        }
+//    }
+//    private void OnTriggerEnter(Collider collision)
+//    {
+//        if (collision.gameObject.tag == "Clear")
+//        {
+//            Clear();
+//        }
+//        else if (collision.gameObject.tag == "Dead")
+//        {
+//            GameOver();
+//        }
+//        else if (collision.gameObject.tag == "ScoreItem")
+//        {
+//            ItemData item = collision.gameObject.GetComponent<ItemData>();
+//            score += 1;
+//            Destroy(collision.gameObject);
+//        }
+//        else if (collision.gameObject.tag == "Goal")
+//        {
+//            Goal();
+//        }
+//    }
+//    public void Clear()
+//    {
+//        gameState = "gameclear";
+//        GameStop();
+//    }
+//    public void GameOver()
+//    {
+//        gameState = "gameover";
+//        GameStop();
+//        //プレイヤーのColliderに合わせる
+//        GetComponent<SphereCollider>().enabled = false;
+//    }
+//    public void Goal()
+//    {
+//        gameState = "gameGoal";
+//        GameStop();
+//    }
+//    void GameStop()
+//    {
+//        Rigidbody rb = GetComponent<Rigidbody>();
+//        rb.angularVelocity = new Vector3(0, 0, 0);
+//        rb.isKinematic = true;
+//    }
+//}
