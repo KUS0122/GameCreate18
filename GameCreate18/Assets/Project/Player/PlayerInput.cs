@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
-{
-    private PlayerInputActions _inputActions;
+{    private PlayerInputActions _inputActions;
 
     public Vector2 MovementInput { get; private set; }
-    public bool IsJumpPressed { get; private set; }
+    public bool IsJumpPressed { get; private set; } //ジャンプ入力の状態 
+
 
     private void Awake()
     {
@@ -22,18 +22,15 @@ public class PlayerInput : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_inputActions == null)
-            _inputActions = new PlayerInputActions();
-
         _inputActions.CharacterControls.Enable();
     }
 
     private void OnDisable()
     {
-        if (_inputActions != null)
-            _inputActions.CharacterControls.Disable();
+        _inputActions.CharacterControls.Disable();
     }
 
+    //入力値を処理するメソッド
     private void OnMovementInput(InputAction.CallbackContext context)
     {
         MovementInput = context.ReadValue<Vector2>();
@@ -43,4 +40,5 @@ public class PlayerInput : MonoBehaviour
     {
         IsJumpPressed = context.ReadValueAsButton();
     }
+
 }

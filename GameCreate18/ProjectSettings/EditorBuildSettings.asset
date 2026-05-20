@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Project/Scene/Game5.unity
     guid: 173a9d11aae8bf04ead6505ad0d48a63
   - enabled: 1
+    path: Assets/Project/Scene/Game6.unity
+    guid: 2f5f26e5c15eb194fb700b0172f37f37
+  - enabled: 1
+    path: Assets/Project/Scene/Game9.unity
+    guid: 178b75854bcdd5140ac539a8827fce59
+  - enabled: 1
     path: Assets/Project/Scene/Goal.unity
     guid: 4710cc5f6f5331542b5de310f9d5bbc8
   - enabled: 1

@@ -22,11 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpStartDelay = 0.2f;
-    [SerializeField] private float jumpForce = 5.0f;
+    [SerializeField] public float jumpForce = 5.0f;
     [SerializeField] private float gravity = -9.81f;
 
     [Header("Respawn")]
-    [SerializeField] private float fallThreshold = -3f;
+    [SerializeField] private float fallThreshold = -10f;
     //[SerializeField] private Stage1 stage;
 
     private Vector3 _currentMovement = Vector3.zero;
@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     public bool IsJump { get; private set; } = false;
     public bool Jumping { get; private set; } = false;
     public bool IsButtonActive { get; private set; } = false;
+
+    public bool Isinvert { get; set; } = false;
 
     public int score = 0;
     public static string gameState = "playing";
@@ -56,9 +58,19 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-
         HandleMoveInput();
         HandleRotation();
+
+        // 横移動
+        Vector3 horizontalMove = new Vector3(
+            _currentMovement.x,
+            0f,
+            _currentMovement.z
+        );
+
+        _characterController.Move(
+            horizontalMove * Time.deltaTime
+        );
 
         // 地面判定
         _isGrounded = _characterController.isGrounded;
@@ -66,14 +78,11 @@ public class PlayerMovement : MonoBehaviour
         HandleJump();
         ApplyGravity();
 
-        Vector3 move = new Vector3(
-            _currentMovement.x,
-            _currentMovement.y,
-            _currentMovement.z
-        );
-
+        // 縦移動だけ別でMove
         CollisionFlags flags =
-            _characterController.Move(move * Time.deltaTime);
+            _characterController.Move(
+                Vector3.up * _currentMovement.y * Time.deltaTime
+            );
 
         _isGrounded =
             (flags & CollisionFlags.Below) != 0;
@@ -90,6 +99,11 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 input =
             _playerInput.MovementInput;
+
+        if(Isinvert)
+        {
+            input = -input;
+        }
 
         IsMove = input != Vector2.zero;
 
@@ -153,19 +167,42 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-        if (_isGrounded &&
-            !IsJump &&
-            _playerInput.IsJumpPressed)
+        if (_isGrounded)
         {
-            IsJump = true;
-            _currentMovement.y = jumpForce;
+            if (!IsJump &&
+                _playerInput.IsJumpPressed)
+            {
+                StartCoroutine(JumpCoroutine());
+            }
+        }
+    }
+
+    private IEnumerator JumpCoroutine()
+    {
+        // JumpStart
+        IsJump = true;
+
+        // しゃがみ待機
+        yield return new WaitForSeconds(jumpStartDelay);
+
+        // ジャンプ
+        _currentMovement.y = jumpForce;
+
+        // 地面を離れるまで待機
+        while (_isGrounded)
+        {
+            yield return null;
         }
 
-        if (_isGrounded &&
-            _currentMovement.y <= 0f)
+        IsJump = false;
+
+        while (!_isGrounded)
         {
-            IsJump = false;
+            yield return null;
         }
+
+        // 終了
+        IsJump = false;
     }
 
     public void SetButtonActive(bool active)
@@ -181,6 +218,8 @@ public class PlayerMovement : MonoBehaviour
         Jumping = false;
 
         _currentMovement = Vector3.zero;
+
+        Isinvert = false;
 
         transform.position =
             _respawnPosition + Vector3.up * 0.5f;
