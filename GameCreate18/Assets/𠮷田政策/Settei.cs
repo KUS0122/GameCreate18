@@ -11,11 +11,11 @@ public class Settei : MonoBehaviour
     void Start()
     {
         SetteiPanel.SetActive(false);
-        musicSlider.value = SE.volume;
-        musicSlider.onValueChanged.AddListener((value) => { SE.volume = value; });
-    }
-    void Update()
-    {
 
+        musicSlider.value = music.volume;
+        musicSlider.onValueChanged.AddListener((value) => { music.volume = value; });
+
+        SESlider.value = SE.volume;
+        SESlider.onValueChanged.AddListener((value) => { SE.volume = value; });
     }
 }
