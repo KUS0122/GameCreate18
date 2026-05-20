@@ -683,16 +683,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickGround (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2843111133972994575, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1968659352771601155}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
 --- !u!4 &4907202559979288849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4878560025467636457, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
   m_PrefabInstance: {fileID: 553312477397955576}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5715685947404952491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+  m_PrefabInstance: {fileID: 553312477397955576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1968659352771601155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5715685947404952491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85fd49586e0274ea161d7cc65bdef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingFloor
+  wayPoints:
+  - {fileID: 3954815042858840690}
+  - {fileID: 1458211628941414487}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!1001 &610299993606651261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -769,11 +795,39 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickGround
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2843111133972994575, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 390504088668496019}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+--- !u!1 &4649905378061184302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+  m_PrefabInstance: {fileID: 610299993606651261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &390504088668496019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649905378061184302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85fd49586e0274ea161d7cc65bdef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingFloor
+  wayPoints:
+  - {fileID: 9145655374683494537}
+  - {fileID: 4749192409088978801}
+  - {fileID: 3486678951903136786}
+  - {fileID: 1890137224866784899}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!4 &5461767809186117524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4878560025467636457, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
@@ -896,8 +950,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3322149808781921785, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4243156834950713579}
   m_SourcePrefab: {fileID: 100100000, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+--- !u!1 &3511523228024798599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3322149808781921785, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+  m_PrefabInstance: {fileID: 2207267819641860222}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4243156834950713579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3511523228024798599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c2c322d44a4f741ae162abaa1ac03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchController
+  movingFloors:
+  - {fileID: 1968659352771601155}
+  - {fileID: 8236603161915692039}
 --- !u!4 &4319162504505927485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2689059141844227907, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
@@ -1152,8 +1229,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3322149808781921785, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6306094452931451534}
   m_SourcePrefab: {fileID: 100100000, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+--- !u!1 &48962781186743841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3322149808781921785, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+  m_PrefabInstance: {fileID: 3366254653020689368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6306094452931451534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48962781186743841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c2c322d44a4f741ae162abaa1ac03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchController
+  movingFloors:
+  - {fileID: 390504088668496019}
+  - {fileID: 4632922358807524295}
+  - {fileID: 7657653281273092017}
+  - {fileID: 4542647250099643209}
 --- !u!4 &857412152123294875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2689059141844227907, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
@@ -1214,8 +1316,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3322149808781921785, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2067447545949389608}
   m_SourcePrefab: {fileID: 100100000, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+--- !u!1 &97019241569511221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3322149808781921785, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+  m_PrefabInstance: {fileID: 3405297300203170508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2067447545949389608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97019241569511221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c2c322d44a4f741ae162abaa1ac03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchController
+  movingFloors:
+  - {fileID: 5381810869609313692}
 --- !u!4 &726063400723987855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2689059141844227907, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
@@ -1355,16 +1479,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickGround (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2843111133972994575, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9077902980294070648}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
 --- !u!4 &8211598966885318036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4878560025467636457, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
   m_PrefabInstance: {fileID: 3621269850825078653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8844688603517396782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+  m_PrefabInstance: {fileID: 3621269850825078653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9077902980294070648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844688603517396782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85fd49586e0274ea161d7cc65bdef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingFloor
+  wayPoints:
+  - {fileID: 3085200173453629086}
+  - {fileID: 6418058605430125142}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!1001 &3678335087180710855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1581,16 +1731,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickGround (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2843111133972994575, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4632922358807524295}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
 --- !u!4 &1633455789175622560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4878560025467636457, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
   m_PrefabInstance: {fileID: 6133642228808352073}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2152971097340776730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+  m_PrefabInstance: {fileID: 6133642228808352073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4632922358807524295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152971097340776730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85fd49586e0274ea161d7cc65bdef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingFloor
+  wayPoints:
+  - {fileID: 1890137224866784899}
+  - {fileID: 9145655374683494537}
+  - {fileID: 4749192409088978801}
+  - {fileID: 3486678951903136786}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!1001 &6485297139523115595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1667,11 +1845,39 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickGround (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2843111133972994575, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7657653281273092017}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+--- !u!1 &1368979598342801944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+  m_PrefabInstance: {fileID: 6485297139523115595}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7657653281273092017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368979598342801944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85fd49586e0274ea161d7cc65bdef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingFloor
+  wayPoints:
+  - {fileID: 4749192409088978801}
+  - {fileID: 3486678951903136786}
+  - {fileID: 1890137224866784899}
+  - {fileID: 9145655374683494537}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!4 &1852183539274649762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4878560025467636457, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
@@ -1815,16 +2021,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickGround (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2843111133972994575, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4542647250099643209}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
 --- !u!4 &2756070884713486328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4878560025467636457, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
   m_PrefabInstance: {fileID: 7317126328959868177}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3275338978585513282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+  m_PrefabInstance: {fileID: 7317126328959868177}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4542647250099643209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275338978585513282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85fd49586e0274ea161d7cc65bdef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingFloor
+  wayPoints:
+  - {fileID: 3486678951903136786}
+  - {fileID: 1890137224866784899}
+  - {fileID: 9145655374683494537}
+  - {fileID: 4749192409088978801}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!1001 &7916391181048991889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1942,13 +2176,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3322149808781921785, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8027500580683241621}
   m_SourcePrefab: {fileID: 100100000, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
 --- !u!4 &6241283808810003404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2689059141844227907, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
   m_PrefabInstance: {fileID: 8344056874380835983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6761783355692560758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3322149808781921785, guid: 34578f93451081040af9b20cdd00a82d, type: 3}
+  m_PrefabInstance: {fileID: 8344056874380835983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8027500580683241621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761783355692560758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c2c322d44a4f741ae162abaa1ac03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchController
+  movingFloors:
+  - {fileID: 9077902980294070648}
 --- !u!1001 &8761377990649255914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2017,11 +2273,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickGround (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2843111133972994575, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8236603161915692039}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+--- !u!1 &3560475999076878265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+  m_PrefabInstance: {fileID: 8761377990649255914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8236603161915692039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560475999076878265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85fd49586e0274ea161d7cc65bdef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingFloor
+  wayPoints:
+  - {fileID: 2502485890662090368}
+  - {fileID: 8358035657772011164}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!4 &4189063032048475395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4878560025467636457, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
@@ -2099,11 +2381,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickGround (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2843111133972994575, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5381810869609313692}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+--- !u!1 &3652925012865343380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5260187675865583699, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}
+  m_PrefabInstance: {fileID: 8813046545426501575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5381810869609313692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652925012865343380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85fd49586e0274ea161d7cc65bdef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingFloor
+  wayPoints:
+  - {fileID: 6653572276194933477}
+  - {fileID: 1401098730942285830}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!4 &4177681692402255150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4878560025467636457, guid: 0ba87d8861ed1f4498c4313afb3f53c8, type: 3}

@@ -84,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Respawn();
         }
-        Debug.Log(transform.position.y);
     }
 
     private void HandleMoveInput()

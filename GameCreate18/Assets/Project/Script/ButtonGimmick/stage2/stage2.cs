@@ -21,43 +21,30 @@ public class Stage2 : StageBase
     private float reachDistance = 0.05f;
 
     private int _currentIndex = 0;
-
     private Vector3 _startPosition;
 
     private void Start()
     {
-        _startPosition =
-            movingFloor.position;
+        _startPosition = movingFloor.position;
     }
 
     private void Update()
     {
-        if (player == null ||
-            movingFloor == null)
-        {
+        if (player == null || movingFloor == null)
             return;
-        }
 
-        // Button OFF
         if (!player.IsButtonActive)
-        {
-            StopStage();
             return;
-        }
 
-        if (wayPoints == null ||
-            wayPoints.Length == 0)
-        {
+        if (wayPoints == null || wayPoints.Length == 0)
             return;
-        }
 
         MoveFloor();
     }
 
     private void MoveFloor()
     {
-        Transform targetPoint =
-            wayPoints[_currentIndex];
+        Transform targetPoint = wayPoints[_currentIndex];
 
         if (targetPoint == null)
             return;
@@ -69,7 +56,6 @@ public class Stage2 : StageBase
                 moveSpeed * Time.deltaTime
             );
 
-        // “ž’…”»’è
         if (Vector3.Distance(
                 movingFloor.position,
                 targetPoint.position)
@@ -78,22 +64,20 @@ public class Stage2 : StageBase
             _currentIndex++;
 
             if (_currentIndex >= wayPoints.Length)
-            {
                 _currentIndex = 0;
-            }
         }
     }
 
     public override void StopStage()
     {
-        // ‰½‚à‚µ‚È‚¢
     }
 
     public override void ResetStage()
     {
-        movingFloor.position =
-            _startPosition;
+        if (movingFloor == null)
+            return;
 
+        movingFloor.position = _startPosition;
         _currentIndex = 0;
     }
 }

@@ -3029,6 +3029,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3622463734504184670}
+  - component: {fileID: 256621820361571065}
   m_Layer: 0
   m_Name: Stage7
   m_TagString: Untagged
@@ -3064,6 +3065,22 @@ Transform:
   - {fileID: 5371492763100275464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &256621820361571065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702040526451827672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5c07b1a86619146986ab2a7d487e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stage7
+  autoDoors:
+  - {fileID: 7004786764557680959}
+  - {fileID: 8696357731203567844}
+  needSwitchCount: 7
 --- !u!1 &731511710913749207
 GameObject:
   m_ObjectHideFlags: 0
@@ -13696,7 +13713,7 @@ GameObject:
   - component: {fileID: 1464071485528061253}
   - component: {fileID: 1754027205516560882}
   - component: {fileID: 7960554810207484305}
-  - component: {fileID: 7662160289097398273}
+  - component: {fileID: 2073905548263514956}
   m_Layer: 0
   m_Name: switch (2)
   m_TagString: Button
@@ -13766,7 +13783,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32788658, y: 0.10038519, z: 0.2922802}
   m_Center: {x: -0.0015976429, y: 0.044107676, z: 0.008833468}
---- !u!114 &7662160289097398273
+--- !u!114 &2073905548263514956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13775,10 +13792,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2241312597928177663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed264af069c0f47a4681e448f13b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: fd85977ab330948458cbac544e088824, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonController
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonControllerStage7
   _buttonActive: 0
+  stage7: {fileID: 256621820361571065}
 --- !u!1 &2312164308170803562
 GameObject:
   m_ObjectHideFlags: 0
@@ -16028,6 +16046,7 @@ GameObject:
   - component: {fileID: 3385709007602041996}
   - component: {fileID: 1819289866308085231}
   - component: {fileID: 1470942035911492548}
+  - component: {fileID: 8696357731203567844}
   m_Layer: 0
   m_Name: door (1)
   m_TagString: Untagged
@@ -16096,6 +16115,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09498031, y: 0.084832765, z: 0.04252309}
   m_Center: {x: 0.021696249, y: 0.040755812, z: -0.024966372}
+--- !u!114 &8696357731203567844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717822095890685494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e3991ceb39a3d42b422418232500ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoDoorSatge7
 --- !u!1 &2720997947442896616
 GameObject:
   m_ObjectHideFlags: 0
@@ -20720,7 +20751,7 @@ GameObject:
   - component: {fileID: 2689059141844227907}
   - component: {fileID: 2979014861799189492}
   - component: {fileID: 6879681796371930007}
-  - component: {fileID: 6581287820856973831}
+  - component: {fileID: 4068996215439421213}
   m_Layer: 0
   m_Name: switch
   m_TagString: Button
@@ -20790,7 +20821,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32788658, y: 0.10038519, z: 0.2922802}
   m_Center: {x: -0.0015976429, y: 0.044107676, z: 0.008833468}
---- !u!114 &6581287820856973831
+--- !u!114 &4068996215439421213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20799,10 +20830,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3322149808781921785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed264af069c0f47a4681e448f13b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: fd85977ab330948458cbac544e088824, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonController
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonControllerStage7
   _buttonActive: 0
+  stage7: {fileID: 256621820361571065}
 --- !u!1 &3378024646749679337
 GameObject:
   m_ObjectHideFlags: 0
@@ -22688,7 +22720,7 @@ GameObject:
   - component: {fileID: 4053097795523544264}
   - component: {fileID: 3763212454245152895}
   - component: {fileID: 4762417889771096092}
-  - component: {fileID: 5060750297735170444}
+  - component: {fileID: 4765286868416218915}
   m_Layer: 0
   m_Name: switch (4)
   m_TagString: Button
@@ -22758,7 +22790,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32788658, y: 0.10038519, z: 0.2922802}
   m_Center: {x: -0.0015976429, y: 0.044107676, z: 0.008833468}
---- !u!114 &5060750297735170444
+--- !u!114 &4765286868416218915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22767,10 +22799,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3707780069514141298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed264af069c0f47a4681e448f13b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: fd85977ab330948458cbac544e088824, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonController
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonControllerStage7
   _buttonActive: 0
+  stage7: {fileID: 256621820361571065}
 --- !u!1 &3762450923748622189
 GameObject:
   m_ObjectHideFlags: 0
@@ -31624,7 +31657,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5371492763100275464}
-  - component: {fileID: 3706949335982212869}
   m_Layer: 0
   m_Name: doorframe
   m_TagString: Untagged
@@ -31666,18 +31698,6 @@ Transform:
   - {fileID: 3385709007602041996}
   m_Father: {fileID: 3622463734504184670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3706949335982212869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4737980983207016882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e05eaae2a6ad02f4d9c8bfc21e4171c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoDoor
 --- !u!1 &4802098584550127449
 GameObject:
   m_ObjectHideFlags: 0
@@ -38923,7 +38943,7 @@ GameObject:
   - component: {fileID: 6590439483638738618}
   - component: {fileID: 6301401175090319885}
   - component: {fileID: 2404094152630526574}
-  - component: {fileID: 2698195656238064638}
+  - component: {fileID: 5123286519864490884}
   m_Layer: 0
   m_Name: switch (5)
   m_TagString: Button
@@ -38993,7 +39013,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32788658, y: 0.10038519, z: 0.2922802}
   m_Center: {x: -0.0015976429, y: 0.044107676, z: 0.008833468}
---- !u!114 &2698195656238064638
+--- !u!114 &5123286519864490884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39002,10 +39022,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5782095695528768512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed264af069c0f47a4681e448f13b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: fd85977ab330948458cbac544e088824, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonController
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonControllerStage7
   _buttonActive: 0
+  stage7: {fileID: 256621820361571065}
 --- !u!1 &5823285178698712008
 GameObject:
   m_ObjectHideFlags: 0
@@ -48719,6 +48740,7 @@ GameObject:
   - component: {fileID: 7680797684099210348}
   - component: {fileID: 8924797042509971716}
   - component: {fileID: 3449239777638904555}
+  - component: {fileID: 7004786764557680959}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -48787,6 +48809,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09498031, y: 0.084832765, z: 0.038608182}
   m_Center: {x: 0.021696249, y: 0.040755812, z: 0.022692768}
+--- !u!114 &7004786764557680959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7051647868495464150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e3991ceb39a3d42b422418232500ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoDoorSatge7
 --- !u!1 &7072515621235144005
 GameObject:
   m_ObjectHideFlags: 0
@@ -56378,7 +56412,7 @@ GameObject:
   - component: {fileID: 8885479864354325282}
   - component: {fileID: 8595528815193358229}
   - component: {fileID: 101172618528673782}
-  - component: {fileID: 381552208498740838}
+  - component: {fileID: 446063433712250403}
   m_Layer: 0
   m_Name: switch (3)
   m_TagString: Button
@@ -56448,7 +56482,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32788658, y: 0.10038519, z: 0.2922802}
   m_Center: {x: -0.0015976429, y: 0.044107676, z: 0.008833468}
---- !u!114 &381552208498740838
+--- !u!114 &446063433712250403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56457,10 +56491,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8071647313728739736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed264af069c0f47a4681e448f13b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: fd85977ab330948458cbac544e088824, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonController
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonControllerStage7
   _buttonActive: 0
+  stage7: {fileID: 256621820361571065}
 --- !u!1 &8096682155275839373
 GameObject:
   m_ObjectHideFlags: 0
@@ -59017,7 +59052,7 @@ GameObject:
   - component: {fileID: 9000714160758357756}
   - component: {fileID: 8137466754060665419}
   - component: {fileID: 486400826416853544}
-  - component: {fileID: 210805768763012024}
+  - component: {fileID: 9148017555018456386}
   m_Layer: 0
   m_Name: switch
   m_TagString: Button
@@ -59087,7 +59122,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32788658, y: 0.10038519, z: 0.2922802}
   m_Center: {x: -0.0015976429, y: 0.044107676, z: 0.008833468}
---- !u!114 &210805768763012024
+--- !u!114 &9148017555018456386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59096,10 +59131,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8620775326196442182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed264af069c0f47a4681e448f13b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: fd85977ab330948458cbac544e088824, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonController
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonControllerStage7
   _buttonActive: 0
+  stage7: {fileID: 256621820361571065}
 --- !u!1 &8623484277730395932
 GameObject:
   m_ObjectHideFlags: 0
@@ -59467,7 +59503,7 @@ GameObject:
   - component: {fileID: 8286841739043314747}
   - component: {fileID: 9153044621504061580}
   - component: {fileID: 659840609947914479}
-  - component: {fileID: 938118483175149951}
+  - component: {fileID: 8811913357077833937}
   m_Layer: 0
   m_Name: switch (1)
   m_TagString: Button
@@ -59537,7 +59573,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32788658, y: 0.10038519, z: 0.2922802}
   m_Center: {x: -0.0015976429, y: 0.044107676, z: 0.008833468}
---- !u!114 &938118483175149951
+--- !u!114 &8811913357077833937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59546,10 +59582,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8668046146171487873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed264af069c0f47a4681e448f13b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: fd85977ab330948458cbac544e088824, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonController
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonControllerStage7
   _buttonActive: 0
+  stage7: {fileID: 256621820361571065}
 --- !u!1 &8677024963600837911
 GameObject:
   m_ObjectHideFlags: 0
