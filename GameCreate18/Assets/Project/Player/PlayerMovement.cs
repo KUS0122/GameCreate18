@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpStartDelay = 0.2f;
-    [SerializeField] private float jumpForce = 5.0f;
+    [SerializeField] public float jumpForce = 5.0f;
     [SerializeField] private float gravity = -9.81f;
 
     [Header("Respawn")]
@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     public bool IsJump { get; private set; } = false;
     public bool Jumping { get; private set; } = false;
     public bool IsButtonActive { get; private set; } = false;
+
+    public bool Isinvert { get; set; } = false;
 
     public int score = 0;
     public static string gameState = "playing";
@@ -97,6 +99,11 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 input =
             _playerInput.MovementInput;
+
+        if(Isinvert)
+        {
+            input = -input;
+        }
 
         IsMove = input != Vector2.zero;
 
@@ -211,6 +218,8 @@ public class PlayerMovement : MonoBehaviour
         Jumping = false;
 
         _currentMovement = Vector3.zero;
+
+        Isinvert = false;
 
         transform.position =
             _respawnPosition + Vector3.up * 0.5f;

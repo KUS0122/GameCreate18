@@ -11,6 +11,20 @@ public class AutoDoor : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+    public void OpenDoor()
+    {
+        if (animator != null)
+        {
+            animator.SetBool(OpenHash, true);
+        }
+    }
+    public void CloseDoor()
+    {
+        if (animator != null)
+        {
+            animator.SetBool(OpenHash, false);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
