@@ -29,14 +29,40 @@ public class ButtonControllerStage7 : MonoBehaviour
         UpdateState();
     }
 
-    public void OnPressed(PlayerMovement player)
+    private void OnTriggerEnter(Collider other)
     {
+        PlayerMovementStage7 player =
+            other.GetComponent<PlayerMovementStage7>();
+
+        if (player == null)
+            return;
+
+        OnPressed(player);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        PlayerMovementStage7 player =
+            other.GetComponent<PlayerMovementStage7>();
+
+        if (player == null)
+            return;
+
+        ResetPressState();
+    }
+
+    public void OnPressed(PlayerMovementStage7 player)
+    {
+        Debug.Log("OnPressed Called");
+
         if (_isPlayerOnButton)
             return;
 
-        _isPlayerOnButton = true;
+        if (_buttonActive)
+            return;
 
-        _buttonActive = !_buttonActive;
+        _isPlayerOnButton = true;
+        _buttonActive = true;
 
         Debug.Log($"Switch : {_buttonActive}");
 
@@ -44,10 +70,16 @@ public class ButtonControllerStage7 : MonoBehaviour
 
         player.SetButtonActive(_buttonActive);
 
-        if (_buttonActive && stage7 != null)
+        if (stage7 != null)
         {
             stage7.OnSwitchPressed();
         }
+        else
+        {
+            Debug.LogWarning("Stage7 is not assigned");
+        }
+
+        Debug.Log("Switch Pressed");
     }
 
     public void ResetPressState()

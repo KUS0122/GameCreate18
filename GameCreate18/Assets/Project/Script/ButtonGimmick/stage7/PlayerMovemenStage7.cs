@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementStage7 : MonoBehaviour
 {
     private CharacterController _characterController;
     private PlayerInput _playerInput;
@@ -125,19 +125,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleRotation()
     {
+        // ì¸óÕÇ»Çµ
         if (_moveDirection == Vector3.zero)
             return;
 
         Quaternion targetRotation =
-            Quaternion.LookRotation(_moveDirection);
-
-        float rotateAmount =
-            Mathf.Clamp01(rotationSpeed * Time.deltaTime);
+            Quaternion.LookRotation(
+                _moveDirection
+            );
 
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
             targetRotation,
-            rotateAmount
+            rotationSpeed * Time.deltaTime
         );
     }
 
@@ -232,29 +232,25 @@ public class PlayerMovement : MonoBehaviour
         {
             stage.ResetStage();
         }
+
+        DisappearFloor[] disappearFloors =
+    Object.FindObjectsByType<DisappearFloor>(
+        FindObjectsSortMode.None);
+
+        foreach (DisappearFloor floor in disappearFloors)
+        {
+            floor.ResetFloor();
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        // GroundÇì•ÇÒÇæÇÁçƒâüâ∫â¬î\
-        if (hit.gameObject.CompareTag("Ground"))
+        ButtonControllerStage7 button =
+            hit.collider.GetComponent<ButtonControllerStage7>();
+
+        if (button != null)
         {
-            ButtonController[] buttons =
-                Object.FindObjectsByType<ButtonController>(FindObjectsSortMode.None);
-
-            foreach (ButtonController button in buttons)
-            {
-                button.ResetPressState();
-            }
-        }
-
-        // ButtonÇâüÇ∑
-        ButtonController buttonController =
-            hit.gameObject.GetComponentInParent<ButtonController>();
-
-        if (buttonController != null)
-        {
-            buttonController.OnPressed(this);
+            button.OnPressed(this);
         }
     }
 
@@ -328,8 +324,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void SetMoveSpeed(float speed)
-    {
-        moveSpeed = speed;
-    }
 }
