@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementStage7 : MonoBehaviour
 {
     private CharacterController _characterController;
     private PlayerInput _playerInput;
@@ -125,19 +125,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleRotation()
     {
+        // 入力なし
         if (_moveDirection == Vector3.zero)
             return;
 
         Quaternion targetRotation =
-            Quaternion.LookRotation(_moveDirection);
-
-        float rotateAmount =
-            Mathf.Clamp01(rotationSpeed * Time.deltaTime);
+            Quaternion.LookRotation(
+                _moveDirection
+            );
 
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
             targetRotation,
-            rotateAmount
+            rotationSpeed * Time.deltaTime
         );
     }
 
@@ -171,12 +171,6 @@ public class PlayerMovement : MonoBehaviour
 
         // しゃがみ待機
         yield return new WaitForSeconds(jumpStartDelay);
-
-        Settei settei = Object.FindAnyObjectByType<Settei>();
-        if(settei != null)
-        {
-            settei.JumpSound();
-        }
 
         // ジャンプ
         _currentMovement.y = jumpForce;
@@ -238,29 +232,25 @@ public class PlayerMovement : MonoBehaviour
         {
             stage.ResetStage();
         }
+
+        DisappearFloor[] disappearFloors =
+    Object.FindObjectsByType<DisappearFloor>(
+        FindObjectsSortMode.None);
+
+        foreach (DisappearFloor floor in disappearFloors)
+        {
+            floor.ResetFloor();
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        // Groundを踏んだら再押下可能
-        if (hit.gameObject.CompareTag("Ground"))
+        ButtonControllerStage7 button =
+            hit.collider.GetComponent<ButtonControllerStage7>();
+
+        if (button != null)
         {
-            ButtonController[] buttons =
-                Object.FindObjectsByType<ButtonController>(FindObjectsSortMode.None);
-
-            foreach (ButtonController button in buttons)
-            {
-                button.ResetPressState();
-            }
-        }
-
-        // Buttonを押す
-        ButtonController buttonController =
-            hit.gameObject.GetComponentInParent<ButtonController>();
-
-        if (buttonController != null)
-        {
-            buttonController.OnPressed(this);
+            button.OnPressed(this);
         }
     }
 
@@ -334,8 +324,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void SetMoveSpeed(float speed)
-    {
-        moveSpeed = speed;
-    }
 }
