@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public GameObject mainImage;
-    public Sprite gameClearSpr;
     public GameObject panel;
     public GameObject nextButton;
 
@@ -93,10 +91,8 @@ public class GameManager : MonoBehaviour
             timeBonus = (int)(remain * 50f);
         }
 
-        mainImage.SetActive(true);
         panel.SetActive(true);
 
-        mainImage.GetComponent<Image>().sprite = gameClearSpr;
 
         totalScore = basePoint + timeBonus + (stageScore * 300);
 
@@ -109,10 +105,8 @@ public class GameManager : MonoBehaviour
         isTimer = false;
         if (PlayerMovement.gameState == "next")
         {
-            mainImage.SetActive(true);
             panel.SetActive(true);
 
-            mainImage.GetComponent<Image>().sprite = gameClearSpr;
         }
     }
     public void ResumeGame()
@@ -120,11 +114,6 @@ public class GameManager : MonoBehaviour
         panel.SetActive(false);
         isTimer = true;
         PlayerMovement.gameState = "playing";
-    }
-
-    void InactiveImage()
-    {
-        mainImage.SetActive(false);
     }
 
     void UpdateScore()
