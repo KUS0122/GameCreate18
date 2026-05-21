@@ -270,6 +270,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrackingCamera
   playerTransform: {fileID: 0}
+  offset: {x: 0, y: 5, z: -7}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionRadius: 0.3
+  wallPadding: 0.2
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

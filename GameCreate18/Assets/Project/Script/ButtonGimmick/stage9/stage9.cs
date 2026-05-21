@@ -7,8 +7,11 @@ public class stage9 : MonoBehaviour
     [Header("ƒWƒƒƒ“ƒv—Í")]
     [SerializeField] private float normalJump = 5.0f;
     [SerializeField] private float highJump = 8.0f;
+    [SerializeField] public float Duration = 10.0f;
+    [SerializeField] private float Timer = 0.0f;
 
     private bool _ButtonState = false;
+    private bool _isHighJumpActive = false;
     void Start()
     {
         if(player != null)
@@ -31,20 +34,26 @@ public class stage9 : MonoBehaviour
             }
             _ButtonState = player.IsButtonActive;
         }
+        if(_isHighJumpActive)
+        {
+            Timer -= Time.deltaTime;
+
+            if( Timer <= 0.0f )
+            {
+                Highjump();
+            }
+        }
     }
     private void ToggleJump()
     {
-        if(player == null)
-        {
-            return;
-        }
-        if(player.jumpForce == normalJump)
-        {
-            player.jumpForce = highJump;
-        }
-        else
-        {
-            player.jumpForce = normalJump;
-        }
+        player.jumpForce = highJump;
+        Timer = Duration;
+        _isHighJumpActive = true;
+    }
+    private void Highjump()
+    {
+        player.jumpForce = normalJump;
+        Timer = 0.0f;
+        _isHighJumpActive = false;
     }
 }

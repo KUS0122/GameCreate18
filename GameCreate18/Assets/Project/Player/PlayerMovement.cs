@@ -172,6 +172,12 @@ public class PlayerMovement : MonoBehaviour
         // ‚µ‚á‚ª‚Ý‘Ò‹@
         yield return new WaitForSeconds(jumpStartDelay);
 
+        Settei settei = Object.FindAnyObjectByType<Settei>();
+        if(settei != null)
+        {
+            settei.JumpSound();
+        }
+
         // ƒWƒƒƒ“ƒv
         _currentMovement.y = jumpForce;
 
