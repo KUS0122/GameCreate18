@@ -1386,8 +1386,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5092323068162487664, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9116369540170224650}
   m_SourcePrefab: {fileID: 100100000, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+--- !u!1 &4814175253389705973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5092323068162487664, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+  m_PrefabInstance: {fileID: 316644210375604101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9116369540170224650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4814175253389705973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689ed148dca3b4444b23e888b6ad2082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stage8
+  player: {fileID: 2258327546351585000}
+  normalPlayerSpeed: 3
+  stage8PlayerSpeed: 6
+  movingFloor: {fileID: 7048585695178839467}
+  wayPoints:
+  - {fileID: 5209942555755785053}
+  - {fileID: 1371102851133825771}
+  - {fileID: 2691174806837106677}
+  - {fileID: 1371102851133825771}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!4 &7048585695178839467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7328879842766086702, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
@@ -1532,6 +1563,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ee2ff09a9a772f4a87b6ae140646b31, type: 3}
+--- !u!114 &2258327546351585000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1396768754220551059, guid: 8ee2ff09a9a772f4a87b6ae140646b31, type: 3}
+  m_PrefabInstance: {fileID: 879716196011363707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d50a30627b3b040bd7b9488567c295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!4 &6896789636820415348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6017706966945431055, guid: 8ee2ff09a9a772f4a87b6ae140646b31, type: 3}
@@ -1604,8 +1646,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5092323068162487664, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4147431643799325850}
   m_SourcePrefab: {fileID: 100100000, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+--- !u!1 &6854481627498706999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5092323068162487664, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+  m_PrefabInstance: {fileID: 1840725816306715975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4147431643799325850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854481627498706999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689ed148dca3b4444b23e888b6ad2082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stage8
+  player: {fileID: 2258327546351585000}
+  normalPlayerSpeed: 3
+  stage8PlayerSpeed: 6
+  movingFloor: {fileID: 8952869102050717545}
+  wayPoints:
+  - {fileID: 5451646042811851036}
+  - {fileID: 4829192521716477876}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!4 &8952869102050717545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7328879842766086702, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
@@ -2126,13 +2197,44 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5092323068162487664, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4340782532099931136}
   m_SourcePrefab: {fileID: 100100000, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
 --- !u!4 &539577064805536448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7328879842766086702, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
   m_PrefabInstance: {fileID: 7118395612558094574}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2621675258551420318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5092323068162487664, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+  m_PrefabInstance: {fileID: 7118395612558094574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4340782532099931136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2621675258551420318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689ed148dca3b4444b23e888b6ad2082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stage8
+  player: {fileID: 2258327546351585000}
+  normalPlayerSpeed: 3
+  stage8PlayerSpeed: 6
+  movingFloor: {fileID: 539577064805536448}
+  wayPoints:
+  - {fileID: 2034824946950235009}
+  - {fileID: 855001189725086015}
+  - {fileID: 6760643035610684895}
+  - {fileID: 855001189725086015}
+  moveSpeed: 3
+  reachDistance: 0.05
 --- !u!1001 &7629732520331298975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2200,10 +2302,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5092323068162487664, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 301131940593054808}
   m_SourcePrefab: {fileID: 100100000, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
 --- !u!4 &889223631878498993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7328879842766086702, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
   m_PrefabInstance: {fileID: 7629732520331298975}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3407485027654434287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5092323068162487664, guid: c5296a1253c6c38468f706941e6c77ce, type: 3}
+  m_PrefabInstance: {fileID: 7629732520331298975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &301131940593054808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407485027654434287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689ed148dca3b4444b23e888b6ad2082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stage8
+  player: {fileID: 2258327546351585000}
+  normalPlayerSpeed: 3
+  stage8PlayerSpeed: 6
+  movingFloor: {fileID: 889223631878498993}
+  wayPoints:
+  - {fileID: 7116952797804368479}
+  - {fileID: 4999445888787257443}
+  moveSpeed: 3
+  reachDistance: 0.05

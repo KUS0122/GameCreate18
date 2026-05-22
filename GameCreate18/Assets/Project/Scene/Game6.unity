@@ -147,7 +147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &203844587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1626,6 +1626,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1596122678487775367, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 142.848
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596122678487775367, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -149.29865
+      objectReference: {fileID: 0}
     - target: {fileID: 2672347940236938929, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
       propertyPath: MenuPanel
       value: 
@@ -1633,6 +1641,14 @@ PrefabInstance:
     - target: {fileID: 2946385179345787197, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
       propertyPath: m_Name
       value: Settei 1 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665635192655560243, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 86.1675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665635192655560243, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -6.9163
       objectReference: {fileID: 0}
     - target: {fileID: 5417132196655287461, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1729,6 +1745,22 @@ PrefabInstance:
     - target: {fileID: 7610032132797551148, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032275162593592549, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 311.806
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032275162593592549, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 315.9995
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032275162593592549, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 803.0969
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032275162593592549, guid: 29405e7dcda72e945a5a26bb0530b13e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -372.00024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2538,10 +2570,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1044674543559335300, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d8d4f2e9105f857409484d45040dac87, type: 3}
     - target: {fileID: 2223033246038578205, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
       propertyPath: SetteiPanel
       value: 
       objectReference: {fileID: 1250275661}
+    - target: {fileID: 2555223225408003360, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 52.6237
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555223225408003360, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143259583054447277, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d8d4f2e9105f857409484d45040dac87, type: 3}
+    - target: {fileID: 4224373890821517002, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d8d4f2e9105f857409484d45040dac87, type: 3}
+    - target: {fileID: 4480170740291918021, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 48.5632
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480170740291918021, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -105.94104
+      objectReference: {fileID: 0}
+    - target: {fileID: 4505335435366532002, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 51.6038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4505335435366532002, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -165.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5981021827463118640, guid: 717bd0a115a7fe34ebd0fb057d5feeb9, type: 3}
       propertyPath: SetteiPanel
       value: 

@@ -56,4 +56,9 @@ public class stage9 : MonoBehaviour
         Timer = 0.0f;
         _isHighJumpActive = false;
     }
+
+    /*public override void ResetStage()
+    {
+        player.jumpForce = normalJump;
+    }*/
 }

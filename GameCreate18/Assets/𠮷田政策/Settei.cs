@@ -16,7 +16,7 @@ public class Settei : MonoBehaviour
     void Start()
     {
         allButtons = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        Debug.Log($"見つかったボタンの数: {allButtons.Length}個");
+        //Debug.Log($"見つかったボタンの数: {allButtons.Length}個");
         foreach (Button btn in allButtons)
         {
             if(btn == null)

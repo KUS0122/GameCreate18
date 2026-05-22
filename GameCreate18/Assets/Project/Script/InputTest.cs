@@ -15,6 +15,6 @@ public class InputTest : MonoBehaviour
     void Update()
     {
         var input=spaceKey.IsPressed();
-        Debug.Log(input);
+        //Debug.Log(input);
     }
 }

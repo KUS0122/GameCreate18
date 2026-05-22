@@ -24,7 +24,7 @@ public class Stage7 : MonoBehaviour
 
         pressedCount++;
 
-        Debug.Log("Switch Count : " + pressedCount);
+        //Debug.Log("Switch Count : " + pressedCount);
 
         if (pressedCount >= needSwitchCount)
         {
@@ -35,7 +35,7 @@ public class Stage7 : MonoBehaviour
                 door.SetCanOpen(true);
             }
 
-            Debug.Log("AutoDoor Unlock");
+            //Debug.Log("AutoDoor Unlock");
         }
     }
 }

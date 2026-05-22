@@ -83,7 +83,7 @@ using UnityEngine;
 public class stage5 : MonoBehaviour
 {
     [SerializeField] private PlayerMovement player;
-    [SerializeField] private AutoDoor targetDoor;
+    [SerializeField] private AutoDoor[] targetDoor;
     [SerializeField] private GameObject targetObject;
 
     [SerializeField] private GameObject RotationObject;
@@ -136,7 +136,7 @@ public class stage5 : MonoBehaviour
         if (hitsomething)
         {
             // デバッグ情報：何かに当たったらその名前をコンソールに表示
-            Debug.Log($"【レイキャスト】「{hit.transform.name}」に当たりました！");
+            //Debug.Log($"【レイキャスト】「{hit.transform.name}」に当たりました！");
 
             _debugHitPosition = hit.point; // 当たった場所（座標）を記録
             _debugIsHitting = true;
@@ -145,21 +145,31 @@ public class stage5 : MonoBehaviour
             if (hit.transform == targetObject.transform || hit.transform.IsChildOf(targetObject.transform))
             {
                 // 【大成功ログ】
-                Debug.Log($"<color=cyan>【判定成功】ターゲット「{targetObject.name}」に正面衝突しました！扉を開きます。</color>");
-                targetDoor.OpenDoor();
+                //Debug.Log($"<color=cyan>【判定成功】ターゲット「{targetObject.name}」に正面衝突しました！扉を開きます。</color>");
+                foreach (AutoDoor door in targetDoor)
+                {
+                    door.OpenDoor();
+                }
+                //targetDoor.OpenDoor();
             }
             else
             {
-                Debug.Log($"【判定失敗】何かに当たりましたが、ターゲットではありません。扉を閉じます。");
-                targetDoor.CloseDoor();
+                //Debug.Log($"【判定失敗】何かに当たりましたが、ターゲットではありません。扉を閉じます。");
+                foreach (AutoDoor door in targetDoor)
+                {
+                    door.CloseDoor();
+                }
             }
         }
         else
         {
             // 何にも当たらなかった場合
-            Debug.Log("【レイキャスト】射程圏内には何もありませんでした。");
+            //Debug.Log("【レイキャスト】射程圏内には何もありませんでした。");
             _debugIsHitting = false;
-            targetDoor.CloseDoor();
+            foreach (AutoDoor door in targetDoor)
+            {
+                door.CloseDoor();
+            }
         }
     }
 

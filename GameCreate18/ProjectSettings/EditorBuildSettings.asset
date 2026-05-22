@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Project/Scene/Game7.unity
     guid: 6267b41166f82a3458964a3752df1387
   - enabled: 1
+    path: Assets/Project/Scene/Game8.unity
+    guid: 8f7f2f462e292d644bb107b5a03ba37c
+  - enabled: 1
     path: Assets/Project/Scene/Game9.unity
     guid: 178b75854bcdd5140ac539a8827fce59
   - enabled: 1

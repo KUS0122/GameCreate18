@@ -23,6 +23,6 @@ public class CheckPoint : MonoBehaviour
 
         _isActivated = true;
 
-        Debug.Log("Checkpoint Updated");
+        //Debug.Log("Checkpoint Updated");
     }
 }

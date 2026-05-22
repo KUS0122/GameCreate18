@@ -53,7 +53,7 @@ public class ButtonControllerStage7 : MonoBehaviour
 
     public void OnPressed(PlayerMovementStage7 player)
     {
-        Debug.Log("OnPressed Called");
+        //Debug.Log("OnPressed Called");
 
         if (_isPlayerOnButton)
             return;
@@ -64,7 +64,7 @@ public class ButtonControllerStage7 : MonoBehaviour
         _isPlayerOnButton = true;
         _buttonActive = true;
 
-        Debug.Log($"Switch : {_buttonActive}");
+        //Debug.Log($"Switch : {_buttonActive}");
 
         UpdateState();
 
@@ -76,10 +76,10 @@ public class ButtonControllerStage7 : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Stage7 is not assigned");
+            //Debug.LogWarning("Stage7 is not assigned");
         }
 
-        Debug.Log("Switch Pressed");
+        //Debug.Log("Switch Pressed");
     }
 
     public void ResetPressState()

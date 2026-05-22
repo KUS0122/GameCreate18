@@ -38,7 +38,7 @@ public class ButtonController : MonoBehaviour
         // ON / OFFêÿë÷
         _buttonActive = !_buttonActive;
 
-        Debug.Log($"Switch : {_buttonActive}");
+        //Debug.Log($"Switch : {_buttonActive}");
 
         UpdateState();
 
