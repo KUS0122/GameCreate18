@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Goal : MonoBehaviour
 {
     public GameObject exitButton;
-    public GameObject mainImage;
     public GameObject panel;
 
     public InputField inputField;
@@ -21,7 +20,6 @@ public class Goal : MonoBehaviour
     {
         if (PlayerMovement.gameState == "gameGoal")
         {
-            mainImage.SetActive(true);
             panel.SetActive(true);
             if(errorText != null)
             {

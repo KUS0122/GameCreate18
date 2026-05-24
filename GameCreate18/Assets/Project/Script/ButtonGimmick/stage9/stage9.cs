@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class stage9 : MonoBehaviour
+public class stage9 : StageBase
 {
     [SerializeField] private PlayerMovement player;
 
@@ -10,13 +10,15 @@ public class stage9 : MonoBehaviour
     [SerializeField] public float Duration = 10.0f;
     [SerializeField] private float Timer = 0.0f;
 
-    private bool _ButtonState = false;
+   // private bool _ButtonState = false;
     private bool _isHighJumpActive = false;
+    private int _PressCount = 0;
     void Start()
     {
         if(player != null)
         {
-            _ButtonState = player.IsButtonActive;
+            //_ButtonState = player.IsButtonActive;
+            _PressCount = player.buttonPressCount;
         }
     }
 
@@ -26,35 +28,51 @@ public class stage9 : MonoBehaviour
         {
             return;
         }
-        if(player.IsButtonActive != _ButtonState )
+        if(player.buttonPressCount != _PressCount)
         {
-            if(player.IsButtonActive)
-            {
-                ToggleJump();
-            }
-            _ButtonState = player.IsButtonActive;
+            HighJump();
         }
+        _PressCount = player.buttonPressCount;
         if(_isHighJumpActive)
         {
             Timer -= Time.deltaTime;
 
             if( Timer <= 0.0f )
             {
-                Highjump();
+                ResetJump();
+            }
+            else
+            { 
+            player.jumpForce = highJump;
             }
         }
     }
-    private void ToggleJump()
+    private void HighJump()
     {
-        player.jumpForce = highJump;
         Timer = Duration;
         _isHighJumpActive = true;
+        if(player != null)
+        {
+            player.jumpForce = highJump;
+        }
     }
-    private void Highjump()
+    private void ResetJump()
     {
         player.jumpForce = normalJump;
         Timer = 0.0f;
         _isHighJumpActive = false;
+    }
+    public override void StopStage()
+    {
+        if (player != null) ResetJump();
+    }
+    public override void ResetStage()
+    {
+        if (player != null)
+        {
+            ResetJump();
+            _PressCount = player.buttonPressCount;
+        }
     }
 
     /*public override void ResetStage()

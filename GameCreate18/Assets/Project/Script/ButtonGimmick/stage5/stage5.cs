@@ -1,82 +1,4 @@
-//using Unity.VisualScripting;
-//using UnityEngine;
 
-//public class stage5 : MonoBehaviour
-//{
-//    [SerializeField]
-//    private PlayerMovement player;
-//    [SerializeField]
-//    private AutoDoor targetDoor;
-
-//    [SerializeField] private GameObject RotationObject;
-//    [SerializeField] private GameObject targetObject;
-//    [SerializeField] private Vector3 rotationAmount = new Vector3(0, 90f,0 );
-//    [SerializeField] private float Distance = 10f;
-
-//    // Button押下待機
-//    private bool _canRotation = true;
-//    void Start()
-//    {
-//        if(player != null)
-//        {
-//            _canRotation = player.IsButtonActive;
-//        }
-//    }
-
-//    void Update()
-//    {
-//        if(player == null)
-//        {
-//            return;
-//        }
-//        if(player.IsButtonActive != _canRotation)
-//        {
-//            RotateTarget();
-//            _canRotation = player.IsButtonActive;
-//        }
-//    }
-//    private void RotateTarget()
-//    {
-//        if(RotationObject != null)
-//        {
-//            RotationObject.transform.Rotate(rotationAmount);
-//            CheckFrontObject();
-//        }
-//    }
-//    private void CheckFrontObject()
-//    {
-//        if(targetDoor == null)
-//        {
-//            return;
-//        }
-//        bool hitsomething = Physics.Raycast(
-//            RotationObject.transform.position,
-//            RotationObject.transform.forward,
-//            out RaycastHit hit, Distance);
-//        if(hitsomething && (hit.transform == targetObject.transform || hit.transform.IsChildOf(targetObject.transform)))
-//        {
-//            targetDoor.OpenDoor();
-//        }
-//        else
-//        {
-//            targetDoor.CloseDoor();
-//        }
-//    }
-//    private void OnDrawGizmos()
-//    {
-//        if (RotationObject != null)
-//        {
-//            // 線の色を赤に設定
-//            Gizmos.color = Color.red;
-
-//            // RotationObjectの位置から、正面（forward）に向かってDistance分の長さの線を引く
-//            Gizmos.DrawLine(
-//                RotationObject.transform.position,
-//                RotationObject.transform.position + RotationObject.transform.forward * Distance
-//            );
-//        }
-//    }
-//}
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -91,6 +13,7 @@ public class stage5 : MonoBehaviour
     [SerializeField] private float Distance = 10f;
 
     private bool _canRotation = true;
+    private int _PressCount = 0;
 
     // 【デバッグ用】実際にレイが当たった位置を記憶する変数
     private Vector3 _debugHitPosition;
@@ -98,9 +21,13 @@ public class stage5 : MonoBehaviour
 
     void Start()
     {
+        //if (player != null)
+        //{
+        //    _canRotation = player.IsButtonActive;
+        //}
         if (player != null)
         {
-            _canRotation = player.IsButtonActive;
+            _PressCount = player.buttonPressCount;
         }
     }
 
@@ -108,11 +35,16 @@ public class stage5 : MonoBehaviour
     {
         if (player == null) return;
 
-        if (player.IsButtonActive != _canRotation)
+        //if (player.IsButtonActive != _canRotation)
+        //{
+        //    RotateTarget();
+        //    _canRotation = player.IsButtonActive;
+        //}
+        if (player.buttonPressCount != _PressCount)
         {
             RotateTarget();
-            _canRotation = player.IsButtonActive;
         }
+        _PressCount = player.buttonPressCount;
     }
 
     private void RotateTarget()

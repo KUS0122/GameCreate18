@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsJump { get; private set; } = false;
     public bool Jumping { get; private set; } = false;
     public bool IsButtonActive { get; private set; } = false;
+    [HideInInspector] public int buttonPressCount = 0;
 
     public bool Isinvert { get; set; } = false;
 
@@ -201,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetButtonActive(bool active)
     {
         IsButtonActive = active;
+        buttonPressCount++;
     }
 
     private void Respawn()

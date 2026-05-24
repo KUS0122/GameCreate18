@@ -6,7 +6,8 @@ public class AutoDoor : MonoBehaviour
 
     private static readonly int OpenHash =
         Animator.StringToHash("Open");
-
+    [Header("ê›íË")]
+    [SerializeField] private bool TriggerOpen = true;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -28,6 +29,10 @@ public class AutoDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!TriggerOpen)
+        {
+            return;
+        }
         PlayerMovement player =
             other.GetComponent<PlayerMovement>();
 
@@ -39,6 +44,10 @@ public class AutoDoor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!TriggerOpen)
+        {
+            return;
+        }
         PlayerMovement player =
             other.GetComponent<PlayerMovement>();
 

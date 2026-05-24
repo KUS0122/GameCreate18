@@ -11,6 +11,7 @@ TagManager:
   - Clear
   - next
   - Next
+  - ScoreItem
   layers:
   - Default
   - TransparentFX

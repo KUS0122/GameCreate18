@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class stage6 : StageBase
 {
     [SerializeField] private PlayerMovement player;
 
-    private bool _ButtonState = false;
+    private int _ButtonState = 0;
     private bool trigger = false;
+    private bool _playerState = false;
 
     void Start()
     {
@@ -18,31 +20,29 @@ public class stage6 : StageBase
         {
             return;
         }
-        if(trigger)
-        {
-            return;
-        }
 
-        if(player.IsButtonActive != _ButtonState)
+        if(player.buttonPressCount > _ButtonState)
         {
-            if(player.IsButtonActive)
-            {
-                TogglPlayerControl();
-                trigger = true;
-            }
-            _ButtonState = player.IsButtonActive;
+            TogglPlayerControl();
+            _ButtonState = player.buttonPressCount;
         }
     }
     private void TogglPlayerControl()
     {
-        player.Isinvert = !player.Isinvert;
+        if (player == null)
+        {
+            return;
+        }
+        _playerState = !_playerState;
+        player.Isinvert = _playerState;
     }
     public override void ResetStage()
     {
         trigger = false;
+        _playerState = false;
         if (player != null)
         {
-            _ButtonState = player.IsButtonActive;
+            _ButtonState = player.buttonPressCount;
         }
     }
     public override void StopStage()
