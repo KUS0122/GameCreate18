@@ -447,7 +447,7 @@ MonoBehaviour:
   TriggerOpen: 1
   doorBlockCollider: {fileID: 4748432179759814698}
   closedColliderCenter: {x: -0.002954802, y: 0.03951856, z: 0.01210168}
-  openedColliderCenter: {x: 0.02, y: 0.03951856, z: 0.01210168}
+  openedColliderCenter: {x: -0.02, y: 0.03951856, z: 0.01210168}
 --- !u!65 &4748432179759814698
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
   TriggerOpen: 1
   doorBlockCollider: {fileID: 6090214823145285505}
   closedColliderCenter: {x: -0.00232769, y: 0.03951856, z: -0.008528139}
-  openedColliderCenter: {x: 0.02, y: 0.03951856, z: -0.008528139}
+  openedColliderCenter: {x: -0.02, y: 0.03951856, z: -0.008528139}
 --- !u!65 &6090214823145285505
 BoxCollider:
   m_ObjectHideFlags: 0
