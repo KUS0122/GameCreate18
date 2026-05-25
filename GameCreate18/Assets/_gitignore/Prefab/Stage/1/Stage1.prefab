@@ -1306,6 +1306,10 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 1729
       objectReference: {fileID: 0}
+    - target: {fileID: 6099952437426447488, guid: 254e5f1a4ebcd1a4c98dadba4e753d5c, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7297526976039910728, guid: 254e5f1a4ebcd1a4c98dadba4e753d5c, type: 3}
       propertyPath: m_Name
       value: Stage1Gimmick

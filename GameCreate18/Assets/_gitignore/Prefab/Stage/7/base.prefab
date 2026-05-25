@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 6731878416772791200}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &303033275228499980
 GameObject:
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 8422318555835687627}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &562506482958927224
 GameObject:
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 2697643918644845962}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &963084958444417490
 GameObject:
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 6666266879748441950}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &963243293316694421
 GameObject:
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 1550652226399422639}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &1152373659689824662
 GameObject:
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 3098234343696748283}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &1421451424039916200
 GameObject:
@@ -1909,7 +1909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 7917026799628910352}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &3740057310216447006
 GameObject:
@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 7934695757192305144}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &4460477209443523297
 GameObject:
@@ -3161,7 +3161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 5228390360534165965}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &6152740074257789418
 GameObject:
@@ -4658,7 +4658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 3963533315579786897}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &8505212515356545291
 GameObject:
@@ -4727,7 +4727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 2775358018595864389}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &8552418972909183682
 GameObject:
@@ -4796,7 +4796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisappearFloor
   targetFloor: {fileID: 5378153602094288022}
-  fallSpeed: 2
+  fallSpeed: 1
   fallDistance: 20
 --- !u!1 &8870942365603592729
 GameObject:
