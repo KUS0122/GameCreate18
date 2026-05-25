@@ -380,6 +380,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ff827a33149b42d4eaad39d69227b20c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4113207272484014356}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ff827a33149b42d4eaad39d69227b20c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4748432179759814698}
   m_SourcePrefab: {fileID: 100100000, guid: ff827a33149b42d4eaad39d69227b20c, type: 3}
 --- !u!1 &3628327054036869885 stripped
 GameObject:
@@ -441,6 +444,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05eaae2a6ad02f4d9c8bfc21e4171c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoDoor
+  TriggerOpen: 1
+  doorBlockCollider: {fileID: 4748432179759814698}
+  closedColliderCenter: {x: -0.002954802, y: 0.03951856, z: 0.01210168}
+  openedColliderCenter: {x: 0.02, y: 0.03951856, z: 0.01210168}
+--- !u!65 &4748432179759814698
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628327054036869885}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04453517, y: 0.07845641, z: 0.0118316915}
+  m_Center: {x: -0.00010093533, y: 0.03951856, z: 0.01210168}
 --- !u!4 &4112270897648171079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ff827a33149b42d4eaad39d69227b20c, type: 3}
@@ -527,6 +555,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ff827a33149b42d4eaad39d69227b20c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8814111944577954125}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ff827a33149b42d4eaad39d69227b20c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6090214823145285505}
   m_SourcePrefab: {fileID: 100100000, guid: ff827a33149b42d4eaad39d69227b20c, type: 3}
 --- !u!1 &8516782505110223389 stripped
 GameObject:
@@ -574,8 +605,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.09498031, y: 0.084832765, z: 0.04252309}
-  m_Center: {x: 0.021696249, y: 0.040755812, z: -0.024966372}
+  m_Size: {x: 0.08608672, y: 0.084832765, z: 0.041776083}
+  m_Center: {x: 0.01724945, y: 0.040755812, z: -0.024592869}
 --- !u!114 &8814111944577954125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +619,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05eaae2a6ad02f4d9c8bfc21e4171c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoDoor
+  TriggerOpen: 1
+  doorBlockCollider: {fileID: 6090214823145285505}
+  closedColliderCenter: {x: -0.00232769, y: 0.03951856, z: -0.008528139}
+  openedColliderCenter: {x: 0.02, y: 0.03951856, z: -0.008528139}
+--- !u!65 &6090214823145285505
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8516782505110223389}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.046184942, y: 0.07845641, z: 0.0061774645}
+  m_Center: {x: -0.0023276904, y: 0.03951856, z: -0.008528139}
 --- !u!4 &9041645013199184039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ff827a33149b42d4eaad39d69227b20c, type: 3}

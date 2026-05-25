@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.Windows;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
@@ -126,19 +127,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleRotation()
     {
-        if (_moveDirection == Vector3.zero)
+        Vector2 input = _playerInput.MovementInput;
+
+        if (Isinvert)
+        {
+            input = -input;
+        }
+
+        // Œã‚ë“ü—Í’†‚ÍƒLƒƒƒ‰‚ð‰ñ“]‚³‚¹‚È‚¢
+        if (input.y < 0f)
+        {
             return;
+        }
+
+        if (_moveDirection == Vector3.zero)
+        {
+            return;
+        }
 
         Quaternion targetRotation =
             Quaternion.LookRotation(_moveDirection);
 
-        float rotateAmount =
-            Mathf.Clamp01(rotationSpeed * Time.deltaTime);
-
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
             targetRotation,
-            rotateAmount
+            rotationSpeed * Time.deltaTime
         );
     }
 
