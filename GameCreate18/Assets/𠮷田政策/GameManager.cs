@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject scoreText;
     public static int totalScore = 0;
-    public int stageScore = 0;
+    public static int stageScore = 0;
     public int basePoint = 1000;
 
     public static float totalGameTime = 0f;
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         Invoke("InactiveImage", 1.0f);
         panel.SetActive(false);
-        stageScore = 0;
+        //stageScore = 0;
         UpdateScore();
         isTimer = true;
     }
