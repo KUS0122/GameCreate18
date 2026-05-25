@@ -106,25 +106,25 @@ public class stage5 : MonoBehaviour
     }
 
     // デバッグ用の描画処理
-    private void OnDrawGizmos()
-    {
-        if (RotationObject == null) return;
+    //private void OnDrawGizmos()
+    //{
+    //    if (RotationObject == null) return;
 
-        // 1. 基本となる赤い線を引く（何も当たっていない時の射程距離）
-        Gizmos.color = Color.red;
-        Vector3 endPoint = RotationObject.transform.position + RotationObject.transform.forward * Distance;
-        Gizmos.DrawLine(RotationObject.transform.position, endPoint);
+    //    // 1. 基本となる赤い線を引く（何も当たっていない時の射程距離）
+    //    Gizmos.color = Color.red;
+    //    Vector3 endPoint = RotationObject.transform.position + RotationObject.transform.forward * Distance;
+    //    Gizmos.DrawLine(RotationObject.transform.position, endPoint);
 
-        // 2. もしゲーム中に「何かに当たっている」なら、当たった場所に黄色い球と緑の線を表示する
-        if (Application.isPlaying && _debugIsHitting)
-        {
-            // 発射地点から当たった場所までを「緑色」の線にする
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(RotationObject.transform.position, _debugHitPosition);
+    //    // 2. もしゲーム中に「何かに当たっている」なら、当たった場所に黄色い球と緑の線を表示する
+    //    if (Application.isPlaying && _debugIsHitting)
+    //    {
+    //        // 発射地点から当たった場所までを「緑色」の線にする
+    //        Gizmos.color = Color.green;
+    //        Gizmos.DrawLine(RotationObject.transform.position, _debugHitPosition);
 
-            // 当たったピンポイントの場所に「黄色い球体」を表示する
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(_debugHitPosition, 0.2f);
-        }
-    }
+    //        // 当たったピンポイントの場所に「黄色い球体」を表示する
+    //        Gizmos.color = Color.yellow;
+    //        Gizmos.DrawSphere(_debugHitPosition, 0.2f);
+    //    }
+    //}
 }
