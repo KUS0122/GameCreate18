@@ -1034,6 +1034,7 @@ GameObject:
   - component: {fileID: 1506853217106357209}
   - component: {fileID: 5977800926039732134}
   - component: {fileID: 7023242922589627502}
+  - component: {fileID: 7138805954877412474}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1155,6 +1156,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7138805954877412474}
+        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_MethodName: OnClickTitleButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7023242922589627502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,6 +1181,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeScene
   SceneName: Title
+--- !u!114 &7138805954877412474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712935709247488749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3cc2b239447f248bf03c822a535c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Title
 --- !u!1 &3729865560507317125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,7 +2785,6 @@ MonoBehaviour:
   timeText: {fileID: 4423944404139072696}
   timeCnt: {fileID: 9152134182508226210}
   scoreText: {fileID: 5037304290024157294}
-  stageScore: 0
   basePoint: 1000
   isTimer: 1
 --- !u!1 &6484281831988517943
