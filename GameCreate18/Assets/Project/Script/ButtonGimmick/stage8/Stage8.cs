@@ -27,7 +27,6 @@ public class Stage8 : StageBase
     private int _currentIndex = 0;
     private Vector3 _startPosition;
 
-    // 一度だけ速度変更
     private bool _speedSet = false;
 
     private void Start()
@@ -103,5 +102,11 @@ public class Stage8 : StageBase
 
         // リスポーン時に再度Button待機
         _speedSet = false;
+
+        // プレイヤー速度を通常へ戻す
+        if (player != null)
+        {
+            player.SetMoveSpeed(normalPlayerSpeed);
+        }
     }
 }

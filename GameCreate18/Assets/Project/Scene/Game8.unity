@@ -1584,7 +1584,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 745308590289782501, guid: 773965c9196354a42beeb8f9af7ad3a3, type: 3}
       propertyPath: SceneName
-      value: Game9
+      value: Result
       objectReference: {fileID: 0}
     - target: {fileID: 1290208357082220545, guid: 773965c9196354a42beeb8f9af7ad3a3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2341,6 +2341,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1396768754220551059, guid: 8ee2ff09a9a772f4a87b6ae140646b31, type: 3}
+      propertyPath: jumpForce
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1396768754220551059, guid: 8ee2ff09a9a772f4a87b6ae140646b31, type: 3}
       propertyPath: fallThreshold
       value: -5
